@@ -16,6 +16,7 @@ module.exports = {
 				dark: '#161615',
 				medium: '#E9E6DE',
 				'off-white': '#FCFBF8',
+				'brand-yellow': '#F6DA7B',
 			},
 		},
 	},

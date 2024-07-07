@@ -16,13 +16,18 @@ export default function HeroSection() {
 				</div>
 			</div>
 			<div className="col-start-6 col-span-3 row-start-1 row-span-7 lg:min-h-[40rem] xl:min-h-[calc(100vh-64px)] lg:col-start-6 lg:col-span-3 lg:row-start-1 lg:row-span-8 relative">
-				<Image
-					height={1000}
-					width={1000}
-					alt="image"
-					src={'/img/big-hero.jpg'}
+				<video
 					className="w-full h-full object-cover absolute bottom-0 left-0"
-				/>
+					width="720"
+					height="1280"
+					playsInline
+					autoPlay
+					loop
+					poster="/img/big-hero.jpg"
+				>
+					<source src="/vid/hero-vid.mp4" type="video/mp4" />
+					Your browser does not support the video tag.
+				</video>
 			</div>
 			<div className="relative flex items-end px-8 pt-12 col-start-1 col-span-4 row-start-1 row-span-3 lg:col-start-1 lg:col-span-5 lg:row-start-1 lg:row-span-4 lg:px-12 lg:py-12 lg:items-center">
 				<h1 className="text-4xl sm:text-5xl w-full tracking-tighter text-center  md:text-[5vw] lg:text-[6.5vw] xl:text-[5rem] 2xl:text-[6rem]">

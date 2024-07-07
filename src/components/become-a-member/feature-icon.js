@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function FeatureIcon() {
 	return (
-		<div class="relative mr-2 mb-2">
+		<div className="relative mr-2 mb-2">
 			<svg
 				width="20"
 				height="20"

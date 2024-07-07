@@ -2,32 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-	--foreground-rgb: 0, 0, 0;
-	--background-start-rgb: 214, 219, 220;
-	--background-end-rgb: 255, 255, 255;
+.embla {
+	overflow: hidden;
 }
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--foreground-rgb: 255, 255, 255;
-		--background-start-rgb: 0, 0, 0;
-		--background-end-rgb: 0, 0, 0;
+.embla__container {
+	display: flex;
+}
+.embla-slide {
+	flex: 0 0 100%;
+	min-width: 0;
+}
+@media (min-width: 550px) {
+	.embla-slide {
+		flex: 0 0 80%;
 	}
 }
-
-body {
-	color: rgb(var(--foreground-rgb));
-	background: linear-gradient(
-			to bottom,
-			transparent,
-			rgb(var(--background-end-rgb))
-		)
-		rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-	.text-balance {
-		text-wrap: balance;
+@media (min-width: 768px) {
+	.embla-slide {
+		flex: 0 0 40%;
 	}
+}
+@media (min-width: 1024px) {
+  .embla-slide {
+    flex: 0 0 35%;
+  }
+}
+@media (min-width: 1440px) {
+  .embla-slide {
+    flex: 0 0 25%;
+  }
 }

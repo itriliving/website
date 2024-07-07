@@ -9,15 +9,18 @@ export default function HeroSection() {
 					<div className="mx-auto px-[6.67vw] sm:px-[12vw] md:px-10 lg:px-12 md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem] w-full">
 						<div className="max-w-lg mx-auto">
 							<h1 className="text-5xl lg:text-6xl xl:text-7xl">
-								Become a Member
+								Embrace the Itri Community Vibe
 							</h1>
 							<div className="mt-6 text-base md:text-lg xl:text-xl">
 								<p>
-									Join Itri Living Membership and get
-									accommodation rights for life, to our
-									exclusive Resorts, community events, and
-									local experiences. It&apos;s where your
-									journey begins.
+									Itri Residences Beach & SPA, is continuously
+									growing. We have several projects currently
+									under construction and others under
+									consideration, all designed to offer
+									authentic and enriching living experiences.
+									Stay tuned for updates on our upcoming
+									locations and join the Itri Living
+									community.
 								</p>
 							</div>
 							<div className="flex flex-row gap-2 justify-center md:justify-start flex-wrap mt-6"></div>
@@ -42,8 +45,8 @@ export default function HeroSection() {
 				</div>
 				<div className="order-1 w-full mx-auto aspect-standard relative md:order-2 md:w-1/2 md:my-14 lg:my-16 xl:my-20 2xl:my-24">
 					<Image
-						src="/img/become-a-member-hero.jpg"
-						alt="Become a Member Image"
+						src="/img/locations-hero.jpg"
+						alt="Locations Hero Image"
 						width={1500}
 						height={1500}
 					/>

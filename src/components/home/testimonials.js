@@ -3,10 +3,11 @@ import Link from 'next/link';
 
 export default function Testimonials() {
 	return (
-		<section className="relative border-dark py-0 bg-medium border-dark border-y">
+		<section className="relative py-0 bg-medium border-dark border-y">
 			<div className="grid grid-cols-1 md:grid-cols-2 items-center">
-				<div className="w-[86.66vw] mt-12 md:my-14 lg:my-16 xl:my-20 2xl:my-24 sm:w-[76vw] md:w-full mx-auto aspect-square relative order-1  md:max-w-none xl:aspect-standard md:order-2">
+				<div className="w-[86.66vw] mt-12 md:my-14 lg:my-16 xl:my-20 2xl:my-24 sm:w-[76vw] md:w-full mx-auto aspect-square relative order-1  md:max-w-none xl:aspect-auto md:order-2">
 					<Image
+            className='w-full h-full object-cover'
 						width={1000}
 						height={1000}
 						alt="Image"

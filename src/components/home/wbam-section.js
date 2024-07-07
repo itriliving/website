@@ -1,5 +1,8 @@
 import PrimaryCard from './primary-card';
 import SecondaryCard from './secondary-card';
+import { Playfair } from 'next/font/google';
+
+const playfair = Playfair({ subsets: ['latin'] });
 
 export default function WbamSection() {
 	return (
@@ -8,7 +11,12 @@ export default function WbamSection() {
 				<div className="mx-auto px-[6.67vw] sm:px-[12vw] md:px-10 lg:px-12 md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem] ">
 					<div className="flex flex-col gap-10 items-start">
 						<div className="max-w-lg lg:max-w-2xl text-left">
-							<h2 className="font-heading tracking-tight text-dark text-4xl lg:text-5xl">
+							<h2
+								className={
+									'tracking-tight text-dark text-4xl lg:text-5xl font-medium ' +
+									playfair.className
+								}
+							>
 								Why Become a Member?
 							</h2>
 						</div>

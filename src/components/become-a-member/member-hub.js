@@ -1,5 +1,7 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import { Playfair } from 'next/font/google';
+
+const playfair = Playfair({ subsets: ['latin'] });
 
 export default function MemberHub() {
 	return (
@@ -21,7 +23,12 @@ export default function MemberHub() {
 							<h4 className="mt-6 md:text-lg xl:text-xl mb-10 lg:mb-16">
 								Access the
 							</h4>
-							<h2 className="font-heading tracking-tight text-dark text-3xl lg:text-4xl">
+							<h2
+								className={
+									'tracking-tight text-dark text-3xl lg:text-4xl font-medium ' +
+									playfair.className
+								}
+							>
 								Itri.living Community Hub: Itri.club
 							</h2>
 							<p className="mt-6 md:text-lg xl:text-xl">

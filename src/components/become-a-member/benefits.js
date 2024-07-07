@@ -1,4 +1,7 @@
 import Image from 'next/image';
+import { Playfair } from 'next/font/google';
+
+const playfair = Playfair({ subsets: ['latin'] });
 
 export default function Benefits() {
 	return (
@@ -9,7 +12,12 @@ export default function Benefits() {
 						<h2 className="tracking-[.1em] font-body font-medium uppercase text-light text-sm mb-4">
 							Our
 						</h2>
-						<p className="font-heading tracking-tight text-dark text-4xl lg:text-5xl">
+						<p
+							className={
+								'tracking-tight text-dark text-4xl lg:text-5xl font-medium ' +
+								playfair.className
+							}
+						>
 							<span>Membership Benefits</span>
 						</p>
 					</div>

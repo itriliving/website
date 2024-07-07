@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Playfair } from 'next/font/google';
+
+const playfair = Playfair({ subsets: ['latin'] });
 
 export default function HeroSection() {
 	return (
@@ -30,8 +33,13 @@ export default function HeroSection() {
 				</video>
 			</div>
 			<div className="relative flex items-end px-8 pt-12 col-start-1 col-span-4 row-start-1 row-span-3 lg:col-start-1 lg:col-span-5 lg:row-start-1 lg:row-span-4 lg:px-12 lg:py-12 lg:items-center">
-				<h1 className="text-4xl sm:text-5xl w-full tracking-tighter text-center  md:text-[5vw] lg:text-[6.5vw] xl:text-[5rem] 2xl:text-[6rem]">
-					<span className="block leading-tight">
+				<h1
+					className={
+						'text-4xl sm:text-5xl w-full tracking-tighter text-center  md:text-[5vw] lg:text-[6.5vw] xl:text-[5rem] 2xl:text-[6rem] font-medium ' +
+						playfair.className
+					}
+				>
+					<span className="block leading-tight ">
 						Travel uniquely.
 					</span>
 					<span className="block mt-2 md:mt-0 leading-tight lg:ml-[15%] xl:ml-[13%]">
@@ -52,12 +60,12 @@ export default function HeroSection() {
 						>
 							<span>NTE Book</span>
 						</a>
-						<a
-							href="#"
+						<Link
+							href="/become-a-member"
 							className="font-semibold inline-flex items-center justify-center rounded-[3.125rem] active:outline-none active:duration-[50ms] focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 cursor-pointer disabled:pointer-events-none disabled:opacity-40 ring-offset-transparent transition-colors duration-[250ms] min-w-[10rem] text-base gap-2 px-6 py-3 text-off-white bg-dark hover:opacity-90 active:opacity-90 focus-visible:ring-dark w-full 2xl:w-[calc(50%-0.5rem)]"
 						>
 							<span>Become a Member</span>
-						</a>
+						</Link>
 					</div>
 				</div>
 			</div>

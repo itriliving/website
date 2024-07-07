@@ -1,4 +1,7 @@
 import PlusIcon from './plus-icon';
+import { Playfair } from 'next/font/google';
+
+const playfair = Playfair({ subsets: ['latin'] });
 
 export default function FAQs() {
 	return (
@@ -7,7 +10,12 @@ export default function FAQs() {
 				<div className="flex flex-col gap-12 max-w-4xl mx-auto items-center">
 					<div>
 						<div className="max-w-lg lg:max-w-2xl text-center undefined">
-							<h2 className="font-heading tracking-tight text-dark text-4xl lg:text-5xl">
+							<h2
+								className={
+									'tracking-tight text-dark text-4xl lg:text-5xl font-medium ' +
+									playfair.className
+								}
+							>
 								<span>Got questions?</span>
 							</h2>
 							<div className="text-lg prose-a:text-dark prose-a:font-medium prose-a:underline hover:prose-a:text-light mt-4 lg:text-xl">

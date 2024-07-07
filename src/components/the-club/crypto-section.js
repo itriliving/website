@@ -1,7 +1,10 @@
-import Image from "next/image";
+import Image from 'next/image';
+import { Playfair } from 'next/font/google';
+
+const playfair = Playfair({ subsets: ['latin'] });
 
 export default function CryptoSection() {
-  return (
+	return (
 		<section className="relative border-dark py-12 md:py-14 lg:py-16 xl:py-20 2xl:py-24 bg-transparent ">
 			<div className="mx-auto px-[6.67vw] sm:px-[12vw] md:px-10 lg:px-12 md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem] ">
 				<div className="flex flex-col gap-12 md:gap-14 lg:gap-16 xl:gap-20 2xl:gap-24">
@@ -16,7 +19,12 @@ export default function CryptoSection() {
 						</div>
 						<div className="order-2 w-full pt-8 pb-12 md:w-1/2 md:py-12 lg:py-16 md:px-10 lg:px-12 md:order-1">
 							<div className="flex flex-col gap-6">
-								<h2 className="font-heading tracking-tight text-4xl lg:text-5xl">
+								<h2
+									className={
+										'tracking-tight text-4xl lg:text-5xl ' +
+										playfair.className
+									}
+								>
 									Tokenised Assets
 								</h2>
 								<div className="flex flex-col gap-2 text-base md:text-lg xl:text-xl">
@@ -55,7 +63,12 @@ export default function CryptoSection() {
 						</div>
 						<div className="order-2 w-full pt-8 pb-12 md:w-1/2 md:py-12 lg:py-16 md:px-10 lg:px-12">
 							<div className="flex flex-col gap-6">
-								<h2 className="font-heading tracking-tight text-4xl lg:text-5xl">
+								<h2
+									className={
+										'tracking-tight text-4xl lg:text-5xl ' +
+										playfair.className
+									}
+								>
 									Tokenised Assets
 								</h2>
 								<p className="text-base md:text-lg xl:text-xl">
@@ -80,7 +93,12 @@ export default function CryptoSection() {
 						</div>
 						<div className="order-2 w-full pt-8 pb-12 md:w-1/2 md:py-12 lg:py-16 md:px-10 lg:px-12 md:order-1">
 							<div className="flex flex-col gap-6">
-								<h2 className="font-heading tracking-tight text-4xl lg:text-5xl">
+								<h2
+									className={
+										'tracking-tight text-4xl lg:text-5xl ' +
+										playfair.className
+									}
+								>
 									Tokenised Accomodation Rights
 								</h2>
 								<div className="flex flex-col gap-2 text-base md:text-lg xl:text-xl">
@@ -116,7 +134,12 @@ export default function CryptoSection() {
 						</div>
 						<div className="order-2 w-full pt-8 pb-12 md:w-1/2 md:py-12 lg:py-16 md:px-10 lg:px-12">
 							<div className="flex flex-col gap-6">
-								<h2 className="font-heading tracking-tight text-4xl lg:text-5xl">
+								<h2
+									className={
+										'tracking-tight text-4xl lg:text-5xl ' +
+										playfair.className
+									}
+								>
 									Tokenised Accomodation Rights
 								</h2>
 								<p className="text-base md:text-lg xl:text-xl">
@@ -130,5 +153,5 @@ export default function CryptoSection() {
 				</div>
 			</div>
 		</section>
-  );
+	);
 }

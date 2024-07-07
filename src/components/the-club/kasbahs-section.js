@@ -1,4 +1,7 @@
 import SecondaryCard from "./secondary-card";
+import { Playfair } from 'next/font/google';
+
+const playfair = Playfair({ subsets: ['latin'] });
 
 const data = [
 	{
@@ -33,7 +36,7 @@ export default function KasbahsSection() {
 			<div className="mx-auto px-[6.67vw] sm:px-[12vw] md:px-10 lg:px-12 md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem] ">
 				<div className="max-w-lg lg:max-w-2xl text-left">
 					<h2 className="font-heading tracking-tight text-dark text-4xl lg:text-5xl">
-						<span>
+						<span className={playfair.className}>
 							Explore Itri.living Spaces: the Pool-Kasbahs
 						</span>
 					</h2>

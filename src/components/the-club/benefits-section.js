@@ -1,14 +1,22 @@
 import BenefitsCard from './benefits-card';
+import { Playfair } from 'next/font/google';
+
+const playfair = Playfair({ subsets: ['latin'] });
 
 export default function BenefitsSection() {
 	return (
 		<div className="mx-auto px-[6.67vw] sm:px-[12vw] md:px-10 lg:px-12 md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem] ">
 			<section className="py-12 md:py-24">
-				<div className="text-center">
-					<h3 className="tracking-tight text-dark text-4xl lg:text-5xl uppercase mb-5">
-						Benefits
+				<div className="flex flex-col items-center text-center">
+					<h3
+						className={
+							'tracking-tight text-dark text-4xl lg:text-5xl font-bold mb-5 font-medium ' +
+							playfair.className
+						}
+					>
+						The Benefits
 					</h3>
-					<p className="text-lg md:text-xl xl:text-2xl">
+					<p className="text-lg md:text-xl xl:text-2xl max-w-[1000px]">
 						Enjoy a range of state-of-the-art accommodation
 						facilities and services during your stay, including
 						fitness amenities, exclusive events, a wellness center,

@@ -1,6 +1,8 @@
 import FeatureIcon from './feature-icon';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Playfair } from 'next/font/google';
+
+const playfair = Playfair({ subsets: ['latin'] });
 
 export default function Pricing() {
 	return (
@@ -11,7 +13,12 @@ export default function Pricing() {
 						<h2 className="tracking-[.1em] font-body font-medium uppercase text-light text-sm mb-4">
 							Discover our
 						</h2>
-						<p className="font-heading tracking-tight text-dark text-4xl lg:text-5xl">
+						<p
+							className={
+								'tracking-tight text-dark text-4xl lg:text-5xl font-medium ' +
+								playfair.className
+							}
+						>
 							<span>Flat pricing</span>
 						</p>
 						<div className="text-lg prose-a:text-dark prose-a:font-medium prose-a:underline hover:prose-a:text-light mt-4 lg:text-xl">

@@ -1,9 +1,14 @@
-import { Inter } from 'next/font/google';
+import { Raleway } from 'next/font/google';
 import './globals.css';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
-const inter = Inter({ subsets: ['latin'] });
+const raleway = Raleway({ subsets: ['latin'] });
+
+
+import { Playfair } from 'next/font/google';
+
+const playfair = Playfair({ subsets: ['latin'] });
 
 export const metadata = {
 	title: 'Itri Living',
@@ -13,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>
+			<body className={raleway.className}>
 				<Header />
 				{children}
 				<Footer />

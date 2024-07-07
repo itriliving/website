@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Playfair } from 'next/font/google';
+
+const playfair = Playfair({ subsets: ['latin'] });
 
 export default function HeroSection() {
 	return (
@@ -8,7 +11,12 @@ export default function HeroSection() {
 				<div className="order-2 self-stretch justify-center py-12 text-center md:text-left md:flex md:flex-col md:border-r md:border-dark md:order-1 md:w-1/2">
 					<div className="mx-auto px-[6.67vw] sm:px-[12vw] md:px-10 lg:px-12 md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem] w-full">
 						<div className="max-w-lg mx-auto">
-							<h1 className="text-5xl lg:text-6xl xl:text-7xl">
+							<h1
+								className={
+									'text-5xl lg:text-6xl xl:text-7xl font-medium ' +
+									playfair.className
+								}
+							>
 								Stay With Itri Living
 							</h1>
 							<div className="mt-6 text-base md:text-lg xl:text-xl">
@@ -33,8 +41,13 @@ export default function HeroSection() {
 					</div>
 				</div>
 				<div className="order-1 w-full mx-auto aspect-standard relative md:order-2 md:w-1/2 md:my-14 lg:my-16 xl:my-20 2xl:my-24">
-        <Image src="/img/club-hero.jpg" alt="The Club" height={1000} width={1000} />
-        </div>
+					<Image
+						src="/img/club-hero.jpg"
+						alt="The Club"
+						height={1000}
+						width={1000}
+					/>
+				</div>
 			</div>
 		</section>
 	);

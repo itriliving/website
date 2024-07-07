@@ -1,4 +1,9 @@
 import Image from 'next/image';
+import { Bebas_Neue } from 'next/font/google';
+import { Playfair } from 'next/font/google';
+
+const bebasNeue = Bebas_Neue({ subsets: ['latin'], weight: '400' });
+const playfair = Playfair({ subsets: ['latin'] });
 
 export default function EcoSection() {
 	return (
@@ -16,16 +21,26 @@ export default function EcoSection() {
 					<div className="mx-auto px-[6.67vw] sm:px-[12vw] md:px-10 lg:px-12 md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem] w-full">
 						<div className="max-w-xl mx-auto">
 							<h2 className="text-center">
-								<span className="font-heading text-2xl block mb-4">
+								<span
+									className={
+										'text-2xl block mb-4 font-medium ' +
+										playfair.className
+									}
+								>
 									A sustainable way to
 								</span>
-								<span className="font-heading-secondary tracking-normal uppercase text-5xl lg:text-6xl xl:text-7xl">
+								<span
+									className={
+										'tracking-normal uppercase text-5xl lg:text-6xl xl:text-7xl ' +
+										bebasNeue.className
+									}
+								>
 									travel
 								</span>
 							</h2>
 							<div className="text-center mt-6 content-wrapper">
 								<p>
-									We&qpos;re creating a more sustainable way
+									We&apos;re creating a more sustainable way
 									to see the world - from the trees planted
 									when you book, to the eco-friendly products
 									in your kitchen.

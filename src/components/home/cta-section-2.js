@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Bebas_Neue } from 'next/font/google';
+
+const bebasNeue = Bebas_Neue({ subsets: ['latin'], weight: '400' });
 
 export default function CtaSection2() {
 	return (
@@ -21,7 +24,7 @@ export default function CtaSection2() {
 								<span className="font-heading text-2xl block mb-4">
 									The world feels free with ITRI
 								</span>
-								<span className="font-heading-secondary tracking-normal text-5xl lg:text-6xl xl:text-7xl">
+								<span className={"font-heading-secondary tracking-normal text-5xl lg:text-6xl xl:text-7xl " + bebasNeue.className}>
 									JOIN US.
 								</span>
 							</h2>
@@ -41,7 +44,7 @@ export default function CtaSection2() {
 									<span>NTE Book</span>
 								</Link>
 								<Link
-									href={'/'}
+									href={'/become-a-member'}
 									className="font-semibold inline-flex items-center justify-center rounded-[3.125rem] active:outline-none active:duration-[50ms] focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 cursor-pointer disabled:pointer-events-none disabled:opacity-40 ring-offset-transparent w-full transition-colors duration-[250ms] min-w-[10rem] text-base gap-2 px-6 py-3 text-off-white bg-dark hover:bg-dark/90 active:bg-dark/80 focus-visible:ring-dark "
 								>
 									<span>Become a Member</span>

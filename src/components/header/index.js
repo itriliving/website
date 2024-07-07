@@ -4,9 +4,10 @@ import Image from 'next/image';
 export default function Header() {
 	return (
 		<header className="bg-off-white border-b border-dark text-dark">
-			<div className="flex justify-between items-center py-2 mx-auto px-[6.67vw] sm:px-[12vw] md:px-10 lg:px-12 md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem]">
+			<div className="flex justify-between items-center mx-auto px-[6.67vw] sm:px-[12vw] md:px-10 lg:px-12 md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem]">
 				<Link href={'/'}>
 					<Image
+            className='my-2'
 						src="/img/itri-living-logo.png"
 						alt="Itri Living Logo"
 						width={160}
@@ -15,10 +16,10 @@ export default function Header() {
 				</Link>
 				<nav className="flex items-center lg:divide-x lg:divide-dark">
 					<ul className="gap-8 hidden lg:flex pr-6">
-						<li>
+						<li className="py-3 px-6 inline-flex items-center font-medium text-medium relative group xl:px-0 xl:uppercase xl:font-semibold xl:text-sm xl:text-dark">
 							<Link href={'/the-club'}>THE CLUB</Link>
 						</li>
-						<li>
+						<li className="py-3 px-6 inline-flex items-center font-medium text-medium relative group xl:px-0 xl:uppercase xl:font-semibold xl:text-sm xl:text-dark">
 							<Link href={'/locations'}>LOCATIONS</Link>
 							{/* <button className="flex items-center gap-2">
 								<div>THE LOCATIONS</div>
@@ -38,7 +39,7 @@ export default function Header() {
 								</div>
 							</button> */}
 						</li>
-						<li>
+						<li className="py-3 px-6 inline-flex items-center font-medium text-medium relative group xl:px-0 xl:uppercase xl:font-semibold xl:text-sm xl:text-dark">
 							<Link href={'/become-a-member'}>
 								BECOME A MEMBER
 							</Link>

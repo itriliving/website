@@ -1,4 +1,7 @@
 import BlogCard from './blog-card';
+import { Playfair } from 'next/font/google';
+
+const playfair = Playfair({ subsets: ['latin'] });
 
 export default function Blog() {
 	return (
@@ -7,7 +10,7 @@ export default function Blog() {
 				<div className="flex flex-col gap-10 items-start">
 					<div className="max-w-lg lg:max-w-2xl text-left">
 						<h2 className="font-heading tracking-tight text-dark text-4xl lg:text-5xl">
-							<span>From our blog</span>
+							<span className={playfair.className}>From our blog</span>
 						</h2>
 					</div>
 					<div className="grid grid-cols-1 w-full gap-x-6 gap-y-10 md:grid-cols-2 xl:grid-cols-4">

@@ -1,4 +1,7 @@
 import SpaceSectionCell from './space-section-cell';
+import { Bebas_Neue } from 'next/font/google';
+
+const bebasNeue = Bebas_Neue({ subsets: ['latin'], weight: '400' });
 
 const cells = [
 	{
@@ -61,7 +64,7 @@ export default function SpaceSection() {
 							<span className="font-heading text-2xl block mb-4">
 								What makes an
 							</span>
-							<span className="font-heading-secondary tracking-normal text-6xl xl:text-7xl">
+							<span className={"tracking-normal text-6xl xl:text-7xl " + bebasNeue.className}>
 								ITRI.LIVING SPACE
 							</span>
 						</h2>

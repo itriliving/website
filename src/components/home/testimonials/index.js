@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import Carousel from './carousel';
 
 export default function Testimonials() {
 	return (
@@ -32,7 +32,7 @@ export default function Testimonials() {
 										></path>
 									</svg>
 								</div>
-								{/* SLIDER */}
+                <Carousel />
 							</div>
 						</div>
 					</div>

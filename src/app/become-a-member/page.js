@@ -13,8 +13,8 @@ export default function BecomeAMember() {
 			<Benefits />
 			<LocationsSection />
 			<MemberHub />
-      <Pricing />
-      <FAQs />
+			<Pricing />
+			<FAQs />
 		</main>
 	);
 }

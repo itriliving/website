@@ -10,10 +10,10 @@ export default function Home() {
 	return (
 		<main className="flex min-h-screen flex-col bg-off-white text-dark">
 			<HeroSection />
-      <LocationsSection />
+			<LocationsSection />
 			<CtaSection1 />
 			<WbamSection />
-      <Testimonials />
+			<Testimonials />
 			<Blog />
 			<CtaSection2 />
 		</main>

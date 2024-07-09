@@ -1,11 +1,23 @@
-import Card from './card';
+'use client';
 import Cities from './cities';
 import Carousel from './carousel';
 import { Playfair } from 'next/font/google';
+import useEmblaCarousel from 'embla-carousel-react';
+import { useCallback } from 'react';
 
 const playfair = Playfair({ subsets: ['latin'] });
 
 export default function LocationsSection() {
+	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+
+	const scrollPrev = useCallback(() => {
+		if (emblaApi) emblaApi.scrollPrev();
+	}, [emblaApi]);
+
+	const scrollNext = useCallback(() => {
+		if (emblaApi) emblaApi.scrollNext();
+	}, [emblaApi]);
+
 	return (
 		<section className="relative border-dark py-12 md:py-14 lg:py-16 xl:py-20 2xl:py-24 bg-transparent ">
 			<div className="mx-auto px-[6.67vw] sm:px-[12vw] md:px-10 lg:px-12 md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem] ">
@@ -28,16 +40,13 @@ export default function LocationsSection() {
 					</div>
 				</div>
 				<div>
-					<Cities />
+					<Cities scrollNext={scrollNext} scrollPrev={scrollPrev} />
 					<div>
-						<Carousel />
-						{/* <Card
-              count={2}
-              city={'Tiflet'}
-              secondTitle={'9lawi'}
-              image="/img/big-hero.jpg"
-              state={'under construction'}
-            /> */}
+						<Carousel
+							emblaRef={emblaRef}
+							scrollPrev={scrollPrev}
+							scrollNext={scrollNext}
+						/>
 					</div>
 				</div>
 			</div>

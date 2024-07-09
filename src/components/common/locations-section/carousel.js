@@ -1,21 +1,10 @@
 'use client';
-import useEmblaCarousel from 'embla-carousel-react';
+
 import Card from './card';
-import Autoplay from 'embla-carousel-autoplay';
 import ArrowLeft from './arrow-left';
 import ArrowRight from './arrow-right';
-import { useCallback } from 'react';
 
-export default function Carousel() {
-	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
-
-	const scrollPrev = useCallback(() => {
-		if (emblaApi) emblaApi.scrollPrev();
-	}, [emblaApi]);
-
-	const scrollNext = useCallback(() => {
-		if (emblaApi) emblaApi.scrollNext();
-	}, [emblaApi]);
+export default function Carousel({emblaRef, scrollPrev, scrollNext}) {
 
 	return (
 		<div className="relative">
@@ -36,7 +25,7 @@ export default function Carousel() {
 						state={'under consideration'}
 					/>
 					<Card
-						count={2}
+						count={1}
 						city={'Merzouga'}
 						secondTitle={'Lodges'}
 						image="/img/locations/location-img3.jpg"
@@ -47,6 +36,13 @@ export default function Carousel() {
 						city={'Sierra leone'}
 						secondTitle={'resort'}
 						image="/img/locations/location-img4.jpg"
+						state={'under consideration'}
+					/>
+					<Card
+						count={1}
+						city={'Marrakech'}
+						secondTitle={'Takerkoust'}
+						image="/img/locations/location-img5.jpg"
 						state={'under consideration'}
 					/>
 				</div>

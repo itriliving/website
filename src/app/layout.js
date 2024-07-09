@@ -2,6 +2,7 @@ import { Raleway } from 'next/font/google';
 import './globals.css';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import GoToTop from '@/components/common/go-to-top';
 
 const raleway = Raleway({ subsets: ['latin'] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
 				<Header />
 				{children}
 				<Footer />
+        <GoToTop />
 			</body>
 		</html>
 	);

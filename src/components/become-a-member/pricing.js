@@ -26,10 +26,10 @@ export default function Pricing() {
 						</div>
 					</div>
 				</div>
-				<div className="grid max-w-3xl w-full mx-auto">
+				<div className="grid max-w-4xl w-full mx-auto">
 					<div className="grid md:grid-cols-2 gap-6">
 						<div className="flex justify-center">
-							<div className="flex flex-col justify-between bg-medium px-4 py-6 w-full amd:max-w-md border-t-4 border-dark">
+							<div className="flex flex-col justify-between bg-medium px-4 py-6 w-full border-t-4 border-dark">
 								<div className="flex xl:justify-between gap-x-4">
 									<div className="bg-dark w-[45px] h-[45px] flex items-center justify-center">
 										<Image
@@ -96,7 +96,7 @@ export default function Pricing() {
 							</div>
 						</div>
 						<div className="flex justify-center">
-							<div className="flex flex-col justify-between bg-medium px-4 py-6 w-full amd:max-w-md border-t-4 border-brand-yellow">
+							<div className="flex flex-col justify-between bg-medium px-4 py-6 w-full border-t-4 border-brand-yellow">
 								<div className="flex xl:justify-between gap-x-4">
 									<div className="bg-dark w-[45px] h-[45px] flex items-center justify-center">
 										<Image

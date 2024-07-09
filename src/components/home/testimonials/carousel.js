@@ -46,10 +46,10 @@ export default function Carousel() {
 					/>
 				</div>
 			</div>
-			<button className="absolute left-14 bottom-0" onClick={scrollPrev}>
+			<button className="absolute left-2 lg:left-14 bottom-0" onClick={scrollPrev}>
 				<ArrowLeft />
 			</button>
-			<button className="absolute right-14 bottom-0" onClick={scrollNext}>
+			<button className="absolute right-2 lg:right-14 bottom-0" onClick={scrollNext}>
 				<ArrowRight />
 			</button>
 		</div>

@@ -41,7 +41,7 @@ export default function CtaSection2() {
 									href={'/'}
 									className="font-semibold inline-flex items-center justify-center rounded-[3.125rem] active:outline-none active:duration-[50ms] focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 cursor-pointer disabled:pointer-events-none disabled:opacity-40 ring-offset-transparent w-full transition-colors duration-[250ms] min-w-[10rem] text-base gap-2 px-6 py-[11px] text-dark border border-dark hover:bg-dark/5 active:bg-dark/10 focus-visible:ring-dark "
 								>
-									<span>NTE Book</span>
+									<span>NITE Book</span>
 								</Link>
 								<Link
 									href={'/become-a-member'}

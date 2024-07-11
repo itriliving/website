@@ -4,47 +4,59 @@ import Card from './card';
 import ArrowLeft from './arrow-left';
 import ArrowRight from './arrow-right';
 
-export default function Carousel({emblaRef, scrollPrev, scrollNext}) {
+const locations = [
+	{
+		count: 2,
+		city: 'Nador',
+		secondTitle: 'Marchicha',
+		image: '/img/locations/location-img1.jpg',
+		state: 'under construction',
+	},
+	{
+		count: 1,
+		city: 'Dakhla',
+		secondTitle: 'Cabanows',
+		image: '/img/locations/location-img2.jpg',
+		state: 'under consideration',
+	},
+	{
+		count: 1,
+		city: 'Merzouga',
+		secondTitle: 'Lodges',
+		image: '/img/locations/location-img3.jpg',
+		state: 'under consideration',
+	},
+	{
+		count: 1,
+		city: 'Sierra leone',
+		secondTitle: 'resort',
+		image: '/img/locations/location-img4.jpg',
+		state: 'under consideration',
+	},
+	{
+		count: 1,
+		city: 'Marrakech',
+		secondTitle: 'Takerkoust',
+		image: '/img/locations/location-img5.jpg',
+		state: 'under consideration',
+	},
+];
 
+export default function Carousel({ emblaRef, scrollPrev, scrollNext }) {
 	return (
 		<div className="relative">
 			<div className="embla" ref={emblaRef}>
 				<div className="embla__container">
-					<Card
-						count={2}
-						city={'Nador'}
-						secondTitle={'Marchicha'}
-						image="/img/locations/location-img1.jpg"
-						state={'under construction'}
-					/>
-					<Card
-						count={1}
-						city={'Dakhla'}
-						secondTitle={'Cabanows'}
-						image="/img/locations/location-img2.jpg"
-						state={'under consideration'}
-					/>
-					<Card
-						count={1}
-						city={'Merzouga'}
-						secondTitle={'Lodges'}
-						image="/img/locations/location-img3.jpg"
-						state={'under consideration'}
-					/>
-					<Card
-						count={1}
-						city={'Sierra leone'}
-						secondTitle={'resort'}
-						image="/img/locations/location-img4.jpg"
-						state={'under consideration'}
-					/>
-					<Card
-						count={1}
-						city={'Marrakech'}
-						secondTitle={'Takerkoust'}
-						image="/img/locations/location-img5.jpg"
-						state={'under consideration'}
-					/>
+					{locations.map((location, index) => (
+						<Card
+							key={index}
+							count={location.count}
+							city={location.city}
+							secondTitle={location.secondTitle}
+							image={location.image}
+							state={location.state}
+						/>
+					))}
 				</div>
 			</div>
 			<button

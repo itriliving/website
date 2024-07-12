@@ -1,13 +1,7 @@
 import HouseIcon from './house-icon';
 import Image from 'next/image';
 
-export default function Card({
-	count,
-	city,
-	secondTitle,
-	image,
-  state
-}) {
+export default function Card({ count, city, secondTitle, image, state }) {
 	return (
 		<div className="relative w-full embla-slide">
 			<div className="w-full px-2 lg:px-3">
@@ -39,7 +33,9 @@ export default function Card({
 					</div>
 				</a>
 			</div>
-			<p className="uppercase absolute -bottom-8 right-0 text-center w-full">{state}</p>
+			<p className="uppercase absolute -bottom-8 right-0 text-center w-full">
+				{state}
+			</p>
 		</div>
 	);
 }

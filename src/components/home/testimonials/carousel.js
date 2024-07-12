@@ -1,8 +1,8 @@
 'use client';
 import useEmblaCarousel from 'embla-carousel-react';
 import CarouselSlide from './carousel-slide';
-import ArrowLeft from '@/components/common/locations-section/arrow-left';
-import ArrowRight from '@/components/common/locations-section/arrow-right';
+import ArrowLeft from '@/components/common/arrow-left';
+import ArrowRight from '@/components/common/arrow-right';
 import { useCallback } from 'react';
 
 export default function Carousel() {

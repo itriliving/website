@@ -1,7 +1,5 @@
-import React from 'react'
-
 export default function ArrowRight() {
-  return (
+	return (
 		<svg
 			width="40"
 			height="41"
@@ -22,5 +20,5 @@ export default function ArrowRight() {
 				fill="#161615"
 			/>
 		</svg>
-  );
+	);
 }

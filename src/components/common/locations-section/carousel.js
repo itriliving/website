@@ -43,11 +43,11 @@ const EmblaCarousel = (props) => {
 						{slides.map((slide) => (
 							<Card
 								key={slide.index}
-								count={slide.locationCount}
 								city={slide.city}
 								secondTitle={slide.secondTitle}
 								image={slide.image}
 								state={slide.state}
+                blur={slide.blur}
 							/>
 						))}
 					</div>

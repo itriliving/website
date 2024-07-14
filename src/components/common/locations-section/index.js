@@ -4,43 +4,43 @@ const OPTIONS = { loop: true };
 const SLIDES = [
 	{
 		index: 1,
-		locationCount: 2,
 		city: 'Nador',
 		secondTitle: 'Marchicha',
 		image: '/img/locations/location-img1.jpg',
 		state: 'under construction',
+    blur: false,
 	},
 	{
 		index: 2,
-		locationCount: 1,
 		city: 'Dakhla',
 		secondTitle: 'Cabanows',
 		image: '/img/locations/location-img2.jpg',
 		state: 'under consideration',
+    blur: true,
 	},
 	{
 		index: 3,
-		locationCount: 1,
 		city: 'Merzouga',
 		secondTitle: 'Lodges',
 		image: '/img/locations/location-img3.jpg',
 		state: 'under consideration',
+    blur: true,
 	},
 	{
 		index: 4,
-		locationCount: 1,
 		city: 'Sierra leone',
 		secondTitle: 'resort',
 		image: '/img/locations/location-img4.jpg',
 		state: 'under consideration',
+    blur: true,
 	},
 	{
 		index: 5,
-		locationCount: 1,
 		city: 'Marrakech',
 		secondTitle: 'Takerkoust',
 		image: '/img/locations/location-img5.jpg',
 		state: 'under consideration',
+    blur: true,
 	},
 ];
 

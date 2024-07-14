@@ -1,12 +1,24 @@
 import Image from 'next/image';
 
-export default function Card({ count, city, secondTitle, image, state }) {
+export default function Card({
+	className = '',
+	city,
+	secondTitle,
+	image,
+	state,
+	blur,
+}) {
 	return (
-		<div className="relative w-full embla-slide">
+		<div className={'relative embla-slide' + className}>
 			<div className="w-full px-2 lg:px-3">
-				<a href="">
+				<a className="cursor-pointer">
 					<div className="relative aspect-[3/4] overflow-hidden group">
-						<div className="absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-[1.015] blur-sm transition-all duration-400">
+						<div
+							className={
+								'absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-[1.015] transition-all duration-400' +
+								(blur ? ' blur-sm' : '')
+							}
+						>
 							<Image
 								src={image}
 								alt="image"

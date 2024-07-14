@@ -7,7 +7,7 @@ export default function Header() {
 			<div className="flex justify-between items-center mx-auto px-[6.67vw] sm:px-[12vw] md:px-10 lg:px-12 md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem]">
 				<Link href={'/'}>
 					<Image
-            className='my-2'
+						className="my-2"
 						src="/img/itri-living-logo.png"
 						alt="Itri Living Logo"
 						width={160}
@@ -16,30 +16,13 @@ export default function Header() {
 				</Link>
 				<nav className="flex items-center lg:divide-x lg:divide-dark">
 					<ul className="gap-8 hidden lg:flex pr-6">
-						<li className="py-3 px-6 inline-flex items-center font-medium text-medium relative group xl:px-0 xl:uppercase xl:font-semibold xl:text-sm xl:text-dark">
+						<li className="py-3 inline-flex items-center relative group px-0 uppercase font-semibold text-sm text-dark">
 							<Link href={'/the-club'}>THE CLUB</Link>
 						</li>
-						<li className="py-3 px-6 inline-flex items-center font-medium text-medium relative group xl:px-0 xl:uppercase xl:font-semibold xl:text-sm xl:text-dark">
+						<li className="py-3 inline-flex items-center relative group px-0 uppercase font-semibold text-sm text-dark">
 							<Link href={'/locations'}>LOCATIONS</Link>
-							{/* <button className="flex items-center gap-2">
-								<div>THE LOCATIONS</div>
-								<div>
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										width="20"
-										height="20"
-										fill="currentColor"
-										viewBox="0 0 16 16"
-									>
-										<path
-											fill-rule="evenodd"
-											d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
-										/>
-									</svg>
-								</div>
-							</button> */}
 						</li>
-						<li className="py-3 px-6 inline-flex items-center font-medium text-medium relative group xl:px-0 xl:uppercase xl:font-semibold xl:text-sm xl:text-dark">
+						<li className="py-3 inline-flex items-center relative group px-0 uppercase font-semibold text-sm text-dark">
 							<Link href={'/become-a-member'}>
 								BECOME A MEMBER
 							</Link>

@@ -27,10 +27,10 @@ const EmblaCarousel = (props) => {
 						key={slide.index}
 						onClick={() => onDotButtonClick(slide.index - 1)}
 						className={
-							'py-4 uppercase shrink-0 grow font-medium text-sm xl:text-base border-b-2 focus:outline-none hover:text-dark' +
+							'py-4 uppercase shrink-0 grow font-medium text-sm xl:text-base border-b-2 focus:outline-none hover:text-dark transition-colors' +
 							(slide.index - 1 === selectedIndex
-								? ' border-dark'
-								: ' border-transparent')
+								? ' border-dark text-dark'
+								: ' border-transparent text-gray-500')
 						}
 					>
 						{slide.city}

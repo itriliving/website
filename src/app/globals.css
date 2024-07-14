@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .embla {
-	overflow: hidden;
+  overflow: hidden;
 }
 .embla__container {
 	display: flex;

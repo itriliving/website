@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function BenefitsCard({ image, title }) {
 	return (
-		<div className="flex flex-col h-full gap-4 group">
+		<div className="flex flex-col h-full gap-4 group embla-slide mx-6">
 			<div className="relative aspect-standard w-full overflow-hidden">
 				<Image alt="benefit" height={1000} width={1000} src={image} />
 			</div>

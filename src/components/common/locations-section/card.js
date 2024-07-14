@@ -33,7 +33,7 @@ export default function Card({ count, city, secondTitle, image, state }) {
 					</div>
 				</a>
 			</div>
-			<p className="uppercase absolute -bottom-8 right-0 text-center w-full">
+			<p className="uppercase mt-2 opacity-85 text-sm text-center w-full">
 				{state}
 			</p>
 		</div>

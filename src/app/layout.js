@@ -1,19 +1,16 @@
+import Head from 'next/head';
 import { Raleway } from 'next/font/google';
-import './globals.css';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import GoToTop from '@/components/common/go-to-top';
+import './globals.css';
 
 const raleway = Raleway({ subsets: ['latin'] });
 
-
-import { Playfair } from 'next/font/google';
-
-const playfair = Playfair({ subsets: ['latin'] });
-
 export const metadata = {
 	title: 'Itri Living',
-	description: 'Itri Living is a community of like-minded individuals who value exceptional moments, a sense of community, and a love for our planet.',
+	description:
+		'Itri Living is a community of like-minded individuals who value exceptional moments, a sense of community, and a love for our planet.',
 };
 
 export default function RootLayout({ children }) {
@@ -23,7 +20,7 @@ export default function RootLayout({ children }) {
 				<Header />
 				{children}
 				<Footer />
-        <GoToTop />
+				<GoToTop />
 			</body>
 		</html>
 	);

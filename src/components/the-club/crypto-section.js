@@ -27,7 +27,7 @@ export default function CryptoSection() {
 								alt="Crypto"
 							/>
 						</div>
-						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 md:px-10 lg:px-12">
+						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 xl:px-12">
 							<div className="flex flex-col gap-2 text-base md:text-lg xl:text-xl">
 								<span>
 									Upon agreeing to the Club by-laws, and
@@ -60,7 +60,7 @@ export default function CryptoSection() {
 								alt="Crypto"
 							/>
 						</div>
-						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 md:px-10 lg:px-12">
+						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 xl:px-12">
 							<p className="text-base md:text-lg xl:text-xl">
 								Nite, our dedicated marketplace platform, allows
 								Members to sell their tokenised assets
@@ -91,7 +91,7 @@ export default function CryptoSection() {
 								alt="Crypto"
 							/>
 						</div>
-						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 md:px-10 lg:px-12">
+						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 xl:px-12">
 							<div className="flex flex-col gap-2 text-base md:text-lg xl:text-xl">
 								<span>
 									Accomodation rights are tokenised, &
@@ -121,7 +121,7 @@ export default function CryptoSection() {
 								alt="Crypto"
 							/>
 						</div>
-						<div className="w-full pt-8 pb-12  md:py-12 lg:py-16 md:px-10 lg:px-12">
+						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 xl:px-12">
 							<p className="text-base md:text-lg xl:text-xl">
 								Access to exclusive services such as SPA, boat
 								trips, sailing school, mountain biking circuit,

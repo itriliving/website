@@ -1,4 +1,3 @@
-import HouseIcon from './house-icon';
 import Image from 'next/image';
 
 export default function Card({ count, city, secondTitle, image, state }) {
@@ -7,7 +6,7 @@ export default function Card({ count, city, secondTitle, image, state }) {
 			<div className="w-full px-2 lg:px-3">
 				<a href="">
 					<div className="relative aspect-[3/4] overflow-hidden group">
-						<div className="absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-[1.015] transition-all duration-400">
+						<div className="absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-[1.015] blur-sm transition-all duration-400">
 							<Image
 								src={image}
 								alt="image"
@@ -24,16 +23,10 @@ export default function Card({ count, city, secondTitle, image, state }) {
 								{secondTitle}
 							</h4>
 						</div>
-						<div className="absolute top-2 left-2 flex items-center gap-1 rounded-full px-2 py-0.5 text-sm font-medium text-dark bg-off-white shadow-sm">
-							<div className="h-3.5 w-3.5 relative">
-								<HouseIcon />
-							</div>
-							<span>{count}</span>
-						</div>
 					</div>
 				</a>
 			</div>
-			<p className="uppercase mt-2 opacity-85 text-sm text-center w-full">
+			<p className="uppercase mt-2 opacity-85 text-sm lg:text-base text-center w-full">
 				{state}
 			</p>
 		</div>

@@ -18,7 +18,7 @@ export default function CryptoSection() {
 					</h2>
 				</div>
 				<div className="lg:grid lg:grid-cols-2 gap-12 md:gap-14 lg:gap-16 xl:gap-20 2xl:gap-24">
-					<div className="flex flex-col items-center">
+					<div className="flex flex-col items-center px-20 lg:px-0 xl:px-10">
 						<div className="w-full relative overflow-hidden aspect-[4/3]">
 							<Image
 								src="/img/the-club-e1.jpg"
@@ -27,7 +27,7 @@ export default function CryptoSection() {
 								alt="Crypto"
 							/>
 						</div>
-						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 xl:px-12">
+						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 xl:pt-10 xl:px-0">
 							<div className="flex flex-col gap-2 text-base md:text-lg xl:text-xl">
 								<span>
 									Upon agreeing to the Club by-laws, and
@@ -51,7 +51,7 @@ export default function CryptoSection() {
 						</div>
 					</div>
 
-					<div className="flex flex-col items-center">
+					<div className="flex flex-col items-center px-20 lg:px-0 xl:px-10">
 						<div className="w-full relative overflow-hidden aspect-[4/3]">
 							<Image
 								src="/img/the-club-e2.jpg"
@@ -60,7 +60,7 @@ export default function CryptoSection() {
 								alt="Crypto"
 							/>
 						</div>
-						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 xl:px-12">
+						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 xl:pt-10 xl:px-0">
 							<p className="text-base md:text-lg xl:text-xl">
 								Nite, our dedicated marketplace platform, allows
 								Members to sell their tokenised assets
@@ -80,9 +80,8 @@ export default function CryptoSection() {
 						Tokenised Accomodation Rights
 					</h2>
 				</div>
-				;
 				<div className="lg:grid lg:grid-cols-2 gap-12 md:gap-14 lg:gap-16 xl:gap-20 2xl:gap-24">
-					<div className="flex flex-col items-center">
+					<div className="flex flex-col items-center px-20 lg:px-0 xl:px-10">
 						<div className="w-full relative overflow-hidden aspect-[4/3]">
 							<Image
 								src="/img/the-club-e3.jpg"
@@ -91,7 +90,7 @@ export default function CryptoSection() {
 								alt="Crypto"
 							/>
 						</div>
-						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 xl:px-12">
+						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 xl:pt-10 xl:px-0">
 							<div className="flex flex-col gap-2 text-base md:text-lg xl:text-xl">
 								<span>
 									Accomodation rights are tokenised, &
@@ -112,7 +111,7 @@ export default function CryptoSection() {
 							</div>
 						</div>
 					</div>
-					<div className="flex flex-col items-center">
+					<div className="flex flex-col items-center px-20 lg:px-0 xl:px-10">
 						<div className="w-full relative overflow-hidden aspect-[4/3]">
 							<Image
 								src="/img/the-club-e4.jpg"
@@ -121,7 +120,7 @@ export default function CryptoSection() {
 								alt="Crypto"
 							/>
 						</div>
-						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 xl:px-12">
+						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 xl:pt-10 xl:px-0">
 							<p className="text-base md:text-lg xl:text-xl">
 								Access to exclusive services such as SPA, boat
 								trips, sailing school, mountain biking circuit,

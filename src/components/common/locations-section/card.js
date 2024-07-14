@@ -1,7 +1,9 @@
 import Image from 'next/image';
 
+//  + (blur ? ' blur-sm' : '')
+
 export default function Card({
-	className = '',
+	className,
 	city,
 	secondTitle,
 	image,
@@ -9,14 +11,14 @@ export default function Card({
 	blur,
 }) {
 	return (
-		<div className={'relative embla-slide' + className}>
+		<div className={'relative embla-slide transition-opacity ' + className}>
 			<div className="w-full px-2 lg:px-3">
 				<a className="cursor-pointer">
 					<div className="relative aspect-[3/4] overflow-hidden group">
 						<div
 							className={
 								'absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-[1.015] transition-all duration-400' +
-								(blur ? ' blur-sm' : '')
+								(blur ? ' blur-[2px] saturate-[.7]' : '')
 							}
 						>
 							<Image
@@ -38,7 +40,14 @@ export default function Card({
 					</div>
 				</a>
 			</div>
-			<p className="uppercase mt-2 opacity-85 text-sm lg:text-base text-center w-full">
+			<p
+				className={
+					'uppercase mt-2 opacity-85 text-center w-full' +
+					(state === 'under construction'
+						? ' font-bold text-amber-700 text-base lg:text-lg'
+						: 'text-sm lg:text-base')
+				}
+			>
 				{state}
 			</p>
 		</div>

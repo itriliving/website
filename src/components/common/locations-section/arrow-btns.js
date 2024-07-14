@@ -42,7 +42,7 @@ export const PrevButton = (props) => {
 
 	return (
 		<button
-			className="absolute -left-14 top-1/2 -translate-y-1/2 hidden lg:block"
+			className="absolute -left-14 top-1/2 -translate-y-1/2 hidden lg:block rounded-full hover:bg-medium transition-colors"
 			type="button"
 			{...restProps}
 		>
@@ -57,7 +57,7 @@ export const NextButton = (props) => {
 
 	return (
 		<button
-			className="absolute -right-14 top-1/2 -translate-y-1/2 hidden lg:block"
+			className="absolute -right-14 top-1/2 -translate-y-1/2 hidden lg:block rounded-full hover:bg-medium transition-colors"
 			type="button"
 			{...restProps}
 		>

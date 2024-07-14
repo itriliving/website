@@ -5,7 +5,7 @@
 .embla {
   overflow: hidden;
 }
-.embla__container {
+.embla-container {
 	display: flex;
 }
 .embla-slide {

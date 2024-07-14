@@ -33,8 +33,8 @@ export default function BenefitsCarousel() {
 
 	return (
 		<div className="relative">
-			<div className="overflow-hidden" ref={emblaRef}>
-				<div className="flex">
+			<div className="embla" ref={emblaRef}>
+				<div className="embla-container">
 					{benefitsArray.map((benefit) => (
 						<BenefitsCard
 							key={benefit.index}
@@ -45,16 +45,16 @@ export default function BenefitsCarousel() {
 				</div>
 			</div>
 			<button
-				className="absolute -left-14 top-1/2 -translate-y-1/2 hidden lg:block"
+				className="absolute -left-14 top-1/2 -translate-y-1/2 hidden lg:block rounded-full hover:bg-medium transition-colors"
 				type="button"
-        onClick={scrollPrev}
+				onClick={scrollPrev}
 			>
 				<ArrowLeft />
 			</button>
 			<button
-				className="absolute -right-14 top-1/2 -translate-y-1/2 hidden lg:block"
+				className="absolute -right-14 top-1/2 -translate-y-1/2 hidden lg:block rounded-full hover:bg-medium transition-colors"
 				type="button"
-        onClick={scrollNext}
+				onClick={scrollNext}
 			>
 				<ArrowRight />
 			</button>

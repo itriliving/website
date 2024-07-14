@@ -19,7 +19,7 @@ export default function Carousel() {
 	return (
 		<div className="relative w-full">
 			<div className="embla" ref={emblaRef}>
-				<div className="embla__container">
+				<div className="embla-container">
 					<CarouselSlide
 						text="I had the privilege of discovering the location and the amazing concept of Itri Living and their first resort. As a writer, I truly love the concept and the magic of the place, it's simply amazing for my inspiration."
 						name="Aurora Watson"
@@ -42,14 +42,20 @@ export default function Carousel() {
 						text="I was staying at all their places in a row and totally loved it. I arrived with no expectations and it completely blew my mind."
 						name="Sammy Johnson"
 						img="/img/person4.webp"
-            work={'Photographer'}
+						work={'Photographer'}
 					/>
 				</div>
 			</div>
-			<button className="absolute left-2 lg:left-14 bottom-0" onClick={scrollPrev}>
+			<button
+				className="absolute left-2 lg:left-14 bottom-0 rounded-full hover:bg-medium transition-colors"
+				onClick={scrollPrev}
+			>
 				<ArrowLeft />
 			</button>
-			<button className="absolute right-2 lg:right-14 bottom-0" onClick={scrollNext}>
+			<button
+				className="absolute right-2 lg:right-14 bottom-0 rounded-full hover:bg-medium transition-colors"
+				onClick={scrollNext}
+			>
 				<ArrowRight />
 			</button>
 		</div>

@@ -1,7 +1,28 @@
 'use client';
+import { useRouter } from 'next/navigation';
+import { useState, useEffect, useContext } from 'react';
 import { Formik } from 'formik';
+import { auth } from '@/firebase/firebase.config';
+import {
+	createUserWithEmailAndPassword,
+	onAuthStateChanged,
+} from 'firebase/auth';
 
 export default function SignupForm() {
+	const router = useRouter();
+
+	useEffect(() => {
+		const unsubscribe = onAuthStateChanged(auth, (user) => {
+			if (user && router.pathname !== '/profile') {
+				router.push('/profile');
+			}
+		});
+
+		return () => unsubscribe();
+	}, [router]);
+
+	
+
 	return (
 		<div className="space-y-8">
 			<Formik
@@ -16,9 +37,15 @@ export default function SignupForm() {
 					const errors = {};
 					if (!values.firstName) {
 						errors.firstName = 'Required';
+					} else if (values.firstName.length > 24) {
+						errors.firstName =
+							'First name cannot exceed 24 characters';
 					}
 					if (!values.lastName) {
 						errors.lastName = 'Required';
+					} else if (values.lastName.length > 24) {
+						errors.lastName =
+							'Last name cannot exceed 24 characters';
 					}
 					if (!values.phone) {
 						errors.phone = 'Phone number cannot be empty';
@@ -59,10 +86,24 @@ export default function SignupForm() {
 					return errors;
 				}}
 				onSubmit={(values, { setSubmitting }) => {
-					setTimeout(() => {
-						alert(JSON.stringify(values, null, 2));
-						setSubmitting(false);
-					}, 400);
+					createUserWithEmailAndPassword(
+						auth,
+						values.email,
+						values.password
+					)
+						.then((userCredential) => {
+							// Signed in
+							const user = userCredential.user;
+							console.log(user);
+							router.push('/profile'); // Navigate to profile page
+							setSubmitting(false); // Set submitting to false after operation
+						})
+						.catch((error) => {
+							const errorCode = error.code;
+							const errorMessage = error.message;
+							console.error(errorCode, errorMessage);
+							setSubmitting(false); // Ensure to set submitting to false in case of error
+						});
 				}}
 			>
 				{({
@@ -209,7 +250,7 @@ export default function SignupForm() {
 								</div>
 							)}
 						</div>
-						
+
 						<button
 							className="font-semibold inline-flex items-center justify-center rounded-[3.125rem] active:outline-none active:duration-[50ms] focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 cursor-pointer disabled:pointer-events-none disabled:opacity-40 ring-offset-transparent w-full transition-colors duration-[250ms] text-base gap-2 px-6 py-3 text-off-white bg-dark hover:bg-dark/90 active:bg-dark/80 focus-visible:ring-black"
 							type="submit"

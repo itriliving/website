@@ -5,7 +5,7 @@ export default function Logo() {
   return (
 		<Link href={'/'}>
 			<Image
-				className="my-2"
+				className="my-2 w-auto h-auto"
 				src="/img/itri-living-logo.png"
 				alt="Itri Living Logo"
 				width={160}

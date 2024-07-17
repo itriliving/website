@@ -7,7 +7,7 @@ export default function LoginFooter() {
 				<div className="flex flex-col gap-8 items-center lg:flex-row lg:gap-12">
 					<div className="shrink-0 grow-0">
 						<Image
-							className="mb-4"
+							className="mb-4 w-auto h-auto"
 							src="/img/itri-living-logo-white.png"
 							alt="Logo"
 							width={200}

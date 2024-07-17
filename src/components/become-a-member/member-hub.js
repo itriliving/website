@@ -10,12 +10,11 @@ export default function MemberHub() {
 				<div className="flex flex-col md:flex-row">
 					<div className="mb-8 md:mb-0 w-full md:w-1/2 relative overflow-hidden md:order-2 aspect-[3/4]">
 						<Image
-							className="group-hover:scale-[1.05] group-hover:cursor-pointer transition-transform duration-300"
+							className="group-hover:scale-[1.05] group-hover:cursor-pointer transition-transform duration-300 object-cover object-center"
 							src="/img/member-hub.png"
 							alt="Itri Member Hub"
-							layout="fill"
-							objectFit="cover"
-							objectPosition="center"
+              height={1000}
+              width={1000}
 						/>
 					</div>
 					<div className="w-full md:w-1/2 md:order-1 md:pr-10 xl:pr-12">

@@ -9,7 +9,7 @@ export default function Footer() {
 				<div className="divide-y divide-off-white/[.2]">
 					<div className="flex flex-col justify-center items-center py-8">
 						<Image
-							className="mb-4"
+							className="mb-4 w-auto h-auto"
 							src="/img/itri-living-logo-white.png"
 							alt="Logo"
 							width={200}
@@ -198,6 +198,7 @@ export default function Footer() {
 							<div className="grid grid-cols-2 gap-x-4">
 								<a href="www.google.com" target="_blank">
 									<Image
+										className="w-auto h-auto"
 										src="/svg/app-store-badge.svg"
 										alt="App Store"
 										width={150}
@@ -206,6 +207,7 @@ export default function Footer() {
 								</a>
 								<a href="wwww.google.com" target="_blank">
 									<Image
+                    className='w-auto h-auto'
 										src="/svg/apple-store-badge.svg"
 										alt="Apple store"
 										width={150}

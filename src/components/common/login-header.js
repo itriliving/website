@@ -6,7 +6,7 @@ export default function LoginHeader() {
 		<div className="mx-auto px-[6.67vw] sm:px-[12vw] md:px-10 lg:px-12 md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem] ">
 			<Link className="relative block pt-6" href={'/'}>
 				<Image
-					className="my-2"
+					className="my-2 w-auto h-auto"
 					src="/img/itri-living-logo.png"
 					alt="Itri Living Logo"
 					width={160}

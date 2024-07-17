@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import initTranslations from '@/utils/i18n';
 
-export default function CtaSection1() {
+export default async function CtaSection1({ locale, namespaces }) {
+	const { t } = await initTranslations(locale, namespaces);
+
 	return (
 		<section className="relative border-dark py-12 md:py-14 lg:py-16 xl:py-20 2xl:py-24 bg-transparent max-w-[120rem] mt-12 mx-auto">
 			<div className="relative">
@@ -29,10 +32,10 @@ export default function CtaSection1() {
 				</div>
 				<div className="mx-auto px-[6.67vw] sm:px-[12vw] md:px-10 lg:px-12 md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem] relative">
 					<Link
-						href={'/member'}
+						href={'/become-a-member'}
 						className="group absolute right-[10%] bottom-8 sm:bottom-10 z-10 underline text-2xl sm:text-3xl lg:text-4xl font-light text-dark hover:text-light"
 					>
-						Book your stay
+						{t('book-your-stay')}
 					</Link>
 				</div>
 			</div>

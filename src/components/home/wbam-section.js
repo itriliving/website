@@ -1,10 +1,13 @@
 import PrimaryCard from './primary-card';
 import SecondaryCard from './secondary-card';
 import { Playfair } from 'next/font/google';
+import initTranslations from '@/utils/i18n';
 
 const playfair = Playfair({ subsets: ['latin'] });
 
-export default function WbamSection() {
+export default async function WbamSection({ locale, namespaces }) {
+	const { t } = await initTranslations(locale, namespaces);
+
 	return (
 		<div>
 			<section className="relative border-dark py-12 md:py-14 lg:py-16 xl:py-20 2xl:py-24 bg-transparent ">
@@ -17,33 +20,27 @@ export default function WbamSection() {
 									playfair.className
 								}
 							>
-								Why Become a Member?
+								{t('why-become-a-member')}
 							</h2>
 						</div>
 						<div className="grid grid-cols-1 w-full gap-x-6 gap-y-10 md:grid-cols-3">
 							<PrimaryCard
-								title1={'PLACES TO STAY'}
-								title2={'Make yourself at home'}
+								title1={t('wbam-title-1')}
+								title2={t('wbam-subtitle-1')}
 								image={'/img/wbam-1.jpg'}
-								description={
-									'Stay in a private pool -Kasbah, Villa, or VIP villas in Itri Living.'
-								}
+								description={t('wbam-description-1')}
 							/>
 							<PrimaryCard
-								title1={'WORK REMOTELY'}
-								title2={'Bring your work with you'}
+								title1={t('wbam-title-2')}
+								title2={t('wbam-subtitle-2')}
 								image={'/img/wbam-2.jpg'}
-								description={
-									'Get focused and stay productive in work friendly spaces with fast WiFi.'
-								}
+								description={t('wbam-description-2')}
 							/>
 							<PrimaryCard
-								title1={'COMMUNITY'}
-								title2={'Get together'}
+								title1={t('wbam-title-3')}
+								title2={t('wbam-subtitle-3')}
 								image={'/img/wbam-3.jpg'}
-								description={
-									'Connect with Fellow Members of the Itri Living Community, Discover dynamic spaces, engaging events, and an interactive online Member Hub.'
-								}
+								description={t('wbam-description-3')}
 							/>
 						</div>
 					</div>
@@ -57,31 +54,25 @@ export default function WbamSection() {
 					<div className="flex flex-col gap-10 items-start">
 						<div className="grid grid-cols-1 w-full gap-x-6 gap-y-10 md:grid-cols-3">
 							<SecondaryCard
-								title={'Travel solo or together'}
+								title={t('wbam-title-4')}
 								image={'/img/wbam-4.jpg'}
-								description={
-									"Whether you're travelling on your own or you're with company, find your ideal spot with Itri Living"
-								}
+								description={t('wbam-description-4')}
 								link={'/'}
-								linkText={'Book Your Next Trip'}
+								linkText={t('wbam-link-4')}
 							/>
 							<SecondaryCard
-								title={'Save on long term stays'}
+								title={t('wbam-title-5')}
 								image={'/img/wbam-5.jpg'}
-								description={
-									'Save up to 80% on your seaside vacation'
-								}
+								description={t('wbam-description-5')}
 								link={'/'}
-								linkText={'Book an Extended Stay'}
+								linkText={t('wbam-link-5')}
 							/>
 							<SecondaryCard
-								title={'Book with confidence'}
+								title={t('wbam-title-6')}
 								image={'/img/wbam-6.jpg'}
-								description={
-									'Stays include flexible booking and cancellation policies, professional cleaning and contactless check-in.'
-								}
+								description={t('wbam-description-6')}
 								link={'/'}
-								linkText={'Read Our Covid-19 FAQ'}
+								linkText={t('wbam-link-6')}
 							/>
 						</div>
 					</div>

@@ -7,19 +7,26 @@ import LocationsSection from '@/components/common/locations-section';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import GoToTop from '@/components/common/go-to-top';
+import initTranslations from '@/utils/i18n';
+import TranslationsProvider from '@/utils/translations-provider';
 
-export default function BecomeAMember() {
+const namespaces = ['HomePage', 'Common'];
+
+export default async function BecomeAMember({ params: { locale } }) {
+	const { t, resources } = await initTranslations(locale, namespaces);
+	const lang = locale;
+
 	return (
 		<>
 			<Header />
 			<main className="flex min-h-screen flex-col bg-off-white text-dark">
 				<HeroSection />
 				<Benefits />
-				<LocationsSection />
+				<LocationsSection locale={lang} namespaces={namespaces} />
 				<MemberHub />
 				<Pricing />
 				<FAQs />
-        <GoToTop />
+				<GoToTop />
 			</main>
 			<Footer />
 		</>

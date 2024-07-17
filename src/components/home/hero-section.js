@@ -22,8 +22,8 @@ export default function HeroSection() {
 				<Image
 					className="w-full h-full object-cover absolute bottom-0 left-0"
 					src="/img/big-hero.jpg"
-					layout="fill"
-					objectFit="cover"
+					height={1500}
+          width={1500}
 					alt="image"
 				/>
 			</div>

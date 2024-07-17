@@ -6,6 +6,7 @@ import FAQs from '@/components/become-a-member/faqs';
 import LocationsSection from '@/components/common/locations-section';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import GoToTop from '@/components/common/go-to-top';
 
 export default function BecomeAMember() {
 	return (
@@ -18,6 +19,7 @@ export default function BecomeAMember() {
 				<MemberHub />
 				<Pricing />
 				<FAQs />
+        <GoToTop />
 			</main>
 			<Footer />
 		</>

@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.embla {
+  overflow: hidden;
+}
+.embla-container {
+	display: flex;
+}
+.embla-slide {
+	flex: 0 0 100%;
+	min-width: 0;
+}
+@media (min-width: 550px) {
+	.embla-slide {
+		flex: 0 0 80%;
+	}
+}
+@media (min-width: 768px) {
+	.embla-slide {
+		flex: 0 0 40%;
+	}
+}
+@media (min-width: 1024px) {
+  .embla-slide {
+    flex: 0 0 35%;
+  }
+}
+@media (min-width: 1440px) {
+  .embla-slide {
+    flex: 0 0 25%;
+  }
+}
+
+.my-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}

@@ -7,6 +7,7 @@ import BenefitsSection from '@/components/the-club/benefits-section';
 import CryptoSection from '@/components/the-club/crypto-section';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import GoToTop from '@/components/common/go-to-top';
 
 export default function TheClub() {
 	return (
@@ -20,6 +21,7 @@ export default function TheClub() {
 				<EcoSection />
 				<BenefitsSection />
 				<CryptoSection />
+        <GoToTop />
 			</main>
 			<Footer />
 		</>

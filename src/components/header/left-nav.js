@@ -1,13 +1,17 @@
-import Link from "next/link";
 import DesktopNavLink from "./desktop-nav-link";
+import initTranslations from "@/utils/i18n";
 
-const navLinks = [
-  { title: 'THE CLUB', path: 'the-club' },
-  { title: 'LOCATIONS', path: 'locations' },
-  { title: 'BECOME A MEMBER', path: 'become-a-member' },
-];
 
-export default function LeftNav() {
+
+export default async function LeftNav({ locale, namespaces }) {
+  const { t } = await initTranslations(locale, namespaces);
+
+  const navLinks = [
+		{ title: t('Common:the-club'), path: 'the-club' },
+		{ title: t('Common:locations'), path: 'locations' },
+		{ title: t('Common:become-a-member'), path: 'become-a-member' },
+  ];
+  
   return (
 		<ul className="gap-8 hidden lg:flex pr-6">
 			{navLinks.map((link, index) => (

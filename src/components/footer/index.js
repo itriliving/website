@@ -167,10 +167,10 @@ export default async function Footer({ locale, namespaces }) {
 						<div className="max-w-lg w-full mx-auto py-8 md:py-0 md:px-6 xl:px-14">
 							<p className="text-off-white text-lg font-medium text-center mb-4">
 								<span className="xl:block">
-									Keep up with location openings,
+									{t('Common:newsletter-1')}
 								</span>
 								<span className="xl:block">
-									community events, and other news.
+									{t('Common:newsletter-2')}
 								</span>
 							</p>
 							<form>
@@ -179,7 +179,7 @@ export default async function Footer({ locale, namespaces }) {
 										htmlFor="email"
 										className="block text-sm font-medium leading-6 text-dark sr-only"
 									>
-										Email
+										{t('Common:email')}
 									</label>
 									<div className="mt-2 flex rounded-full">
 										<div className="relative flex flex-grow items-stretch focus-within:z-10">
@@ -215,7 +215,7 @@ export default async function Footer({ locale, namespaces }) {
 						</div>
 						<div className="flex flex-col justify-center items-center py-8 md:py-0 md:px-6 xl:px-14">
 							<p className="text-off-white text-lg font-medium mb-2">
-								Download the Itri App Now
+								{t('Common:download')}
 							</p>
 							<div className="grid grid-cols-2 gap-x-4">
 								<a href="www.google.com" target="_blank">
@@ -240,7 +240,7 @@ export default async function Footer({ locale, namespaces }) {
 						</div>
 					</div>
 					<p className="text-center py-8 text-off-white/[.75] text-sm">
-						© 2024 ITRI Living. All rights reserved.
+						{t('Common:rights')}
 					</p>
 				</div>
 			</div>

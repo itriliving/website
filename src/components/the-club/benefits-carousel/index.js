@@ -4,32 +4,31 @@ import BenefitsCard from '../benefits-card';
 import { useCallback } from 'react';
 import ArrowLeft from '@/components/common/arrow-left';
 import ArrowRight from '@/components/common/arrow-right';
-
-const benefitsArray = [
-	{ index: 1, image: '/img/the-club-d1.jpg', title: 'Wellness center' },
-	{ index: 2, image: '/img/the-club-d2.jpg', title: 'Sailing School' },
-	{ index: 3, image: '/img/the-club-d3.jpg', title: 'Water Sports' },
-	{ index: 4, image: '/img/the-club-d4.jpg', title: 'Cycling' },
-	{ index: 5, image: '/img/the-club-d5.jpg', title: 'PRIVATE Beach club' },
-	{ index: 6, image: '/img/the-club-d6.jpg', title: 'Kids Club' },
-	{
-		index: 7,
-		image: '/img/the-club-d7.jpg',
-		title: 'Yoga and Meditation Area',
-	},
-	{ index: 8, image: '/img/the-club-d8.jpg', title: 'Outdoor Cinema' },
-];
+import { useTranslation } from 'react-i18next';
 
 export default function BenefitsCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+	const { t } = useTranslation('TheClub');
 
-   const scrollPrev = useCallback(() => {
+	const benefitsArray = [
+		{ index: 1, image: '/img/the-club-d1.jpg', title: t('benefit-1') },
+		{ index: 2, image: '/img/the-club-d2.jpg', title: t('benefit-2') },
+		{ index: 3, image: '/img/the-club-d3.jpg', title: t('benefit-3') },
+		{ index: 4, image: '/img/the-club-d4.jpg', title: t('benefit-4') },
+		{ index: 5, image: '/img/the-club-d5.jpg', title: t('benefit-5') },
+		{ index: 6, image: '/img/the-club-d6.jpg', title: t('benefit-6') },
+		{ index: 7, image: '/img/the-club-d7.jpg', title: t('benefit-7') },
+		{ index: 8, image: '/img/the-club-d8.jpg', title: t('benefit-8') },
+	];
+
+	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+
+	const scrollPrev = useCallback(() => {
 		if (emblaApi) emblaApi.scrollPrev();
-   }, [emblaApi]);
+	}, [emblaApi]);
 
-   const scrollNext = useCallback(() => {
+	const scrollNext = useCallback(() => {
 		if (emblaApi) emblaApi.scrollNext();
-   }, [emblaApi]);
+	}, [emblaApi]);
 
 	return (
 		<div className="relative">

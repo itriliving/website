@@ -1,16 +1,19 @@
 import Image from 'next/image';
 import { Playfair } from 'next/font/google';
+import initTranslations from '@/utils/i18n';
 
 const playfair = Playfair({ subsets: ['latin'] });
 
-export default function Benefits() {
+export default async function Benefits({ locale, namespaces }) {
+  const { t } = await initTranslations(locale, namespaces);
+
 	return (
 		<section className="relative border-dark py-12 md:py-14 lg:py-16 xl:py-20 2xl:py-24 bg-transparent ">
 			<div className="mx-auto px-[6.67vw] sm:px-[12vw] md:px-10 lg:px-12 md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem] ">
 				<div className="mb-12">
 					<div className="max-w-lg lg:max-w-2xl text-center mx-auto">
 						<h2 className="tracking-[.1em] font-body font-medium uppercase text-light text-sm mb-4">
-							Our
+							{t('benefits-title-1')}
 						</h2>
 						<p
 							className={
@@ -18,7 +21,7 @@ export default function Benefits() {
 								playfair.className
 							}
 						>
-							<span>Membership Benefits</span>
+							<span>{t('benefits-title-2')}</span>
 						</p>
 					</div>
 				</div>
@@ -34,12 +37,11 @@ export default function Benefits() {
 								/>
 							</div>
 							<h3 className="font-body text-lg font-semibold tracking-normal uppercase mb-3">
-								Exclusive Stays
+								{t('b-1-title')}
 							</h3>
 							<span className="w-8 h-1 border bg-black mx-auto mb-3"></span>
 							<p className="px-8 font-body text-lg">
-								Unlock access to Itri Living’s unique locations,
-								available only to members..
+								{t('b-1-subtitle')}
 							</p>
 						</div>
 						<div className="flex basis-full md:basis-1/2">
@@ -62,12 +64,11 @@ export default function Benefits() {
 								/>
 							</div>
 							<h3 className="font-body text-lg font-semibold tracking-normal uppercase mb-3">
-								Community Hub
+								{t('b-2-title')}
 							</h3>
 							<span className="w-8 h-1 border bg-black mx-auto mb-3"></span>
 							<p className="px-8 font-body text-lg">
-								Connect with like-minded individuals in our
-								vibrant online community.
+								{t('b-2-subtitle')}
 							</p>
 						</div>
 						<div className="flex basis-full md:basis-1/2 xl:order-2">
@@ -90,12 +91,11 @@ export default function Benefits() {
 								/>
 							</div>
 							<h3 className="font-body text-lg font-semibold tracking-normal uppercase mb-3">
-								Earn Itri Tokens
+								{t('b-3-title')}
 							</h3>
 							<span className="w-8 h-1 border bg-black mx-auto mb-3"></span>
 							<p className="px-8 font-body text-lg">
-								Collect Itri Tokens with every stay, which can
-								be sold on the NITE exchange platform.
+								{t('b-3-subtitle')}
 							</p>
 						</div>
 						<div className="flex basis-full md:basis-1/2">
@@ -118,13 +118,11 @@ export default function Benefits() {
 								/>
 							</div>
 							<h3 className="font-body text-lg font-semibold tracking-normal uppercase mb-3">
-								Special Offers and Perks
+								{t('b-4-title')}
 							</h3>
 							<span className="w-8 h-1 border bg-black mx-auto mb-3"></span>
 							<p className="px-8 font-body text-lg">
-								Get access to exclusive deals and discounts from
-								our trusted partners, including tokenized
-								assets.
+								{t('b-4-subtitle')}
 							</p>
 						</div>
 						<div className="flex basis-full md:basis-1/2">

@@ -7,11 +7,11 @@ import Testimonials from '@/components/home/testimonials';
 import LocationsSection from '@/components/common/locations-section';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import GoToTop from '@/components/common/go-to-top';
 import initTranslations from '@/utils/i18n';
 import TranslationsProvider from '@/utils/translations-provider';
 
 const namespaces = ['HomePage', 'Common'];
-
 
 export default async function Home({ params: { locale } }) {
   const { t, resources } = await initTranslations(locale, namespaces);
@@ -32,6 +32,7 @@ export default async function Home({ params: { locale } }) {
 				<Testimonials />
 				<Blog locale={lang} namespaces={namespaces} />
 				<CtaSection2 locale={lang} namespaces={namespaces} />
+				<GoToTop />
 			</main>
 			<Footer locale={lang} namespaces={namespaces} />
 		</TranslationsProvider>

@@ -14,6 +14,7 @@ export default async function LocationsSection({ locale, namespaces }) {
 			secondTitle: 'Marchicha',
 			image: '/img/locations/location-img1.jpg',
 			state: t('Common:under-construction'),
+			isUnderConstruction: true,
 			blur: false,
 		},
 		{
@@ -22,6 +23,7 @@ export default async function LocationsSection({ locale, namespaces }) {
 			secondTitle: 'Cabanows',
 			image: '/img/locations/location-img2.jpg',
 			state: t('Common:under-consideration'),
+			isUnderConstruction: false,
 			blur: true,
 		},
 		{
@@ -30,6 +32,7 @@ export default async function LocationsSection({ locale, namespaces }) {
 			secondTitle: 'Lodges',
 			image: '/img/locations/location-img3.jpg',
 			state: t('Common:under-consideration'),
+			isUnderConstruction: false,
 			blur: true,
 		},
 		{
@@ -38,6 +41,7 @@ export default async function LocationsSection({ locale, namespaces }) {
 			secondTitle: 'resort',
 			image: '/img/locations/location-img4.jpg',
 			state: t('Common:under-consideration'),
+			isUnderConstruction: false,
 			blur: true,
 		},
 		{
@@ -46,6 +50,7 @@ export default async function LocationsSection({ locale, namespaces }) {
 			secondTitle: 'Takerkoust',
 			image: '/img/locations/location-img5.jpg',
 			state: t('Common:under-consideration'),
+			isUnderConstruction: false,
 			blur: true,
 		},
   ];

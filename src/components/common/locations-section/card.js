@@ -1,13 +1,12 @@
 import Image from 'next/image';
 
-//  + (blur ? ' blur-sm' : '')
-
 export default function Card({
 	className,
 	city,
 	secondTitle,
 	image,
 	state,
+	isUnderConstruction,
 	blur,
 }) {
 	return (
@@ -43,8 +42,8 @@ export default function Card({
 			<p
 				className={
 					'uppercase mt-2 opacity-85 text-center w-full' +
-					(state === 'under construction'
-						? ' font-bold text-amber-700 text-base lg:text-lg'
+					(isUnderConstruction
+						? ' font-semibold text-amber-700 text-base lg:text-lg'
 						: 'text-sm lg:text-base')
 				}
 			>

@@ -1,9 +1,12 @@
 import Image from 'next/image';
 import { Playfair } from 'next/font/google';
+import initTranslations from '@/utils/i18n';
 
 const playfair = Playfair({ subsets: ['latin'] });
 
-export default function CryptoSection() {
+export default async function CryptoSection({ locale, namespaces }) {
+  const { t } = await initTranslations(locale, namespaces);
+
 	return (
 		<section className="relative border-dark py-12 md:py-14 lg:py-16 xl:py-20 2xl:py-24 bg-transparent ">
 			<div className="mx-auto px-[6.67vw] sm:px-[12vw] md:px-10 lg:px-12 md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem] ">
@@ -14,7 +17,7 @@ export default function CryptoSection() {
 							playfair.className
 						}
 					>
-						Tokenised Assets
+						{t('crypto-title-1')}
 					</h2>
 				</div>
 				<div className="lg:grid lg:grid-cols-2 gap-12 md:gap-14 lg:gap-16 xl:gap-20 2xl:gap-24">
@@ -29,24 +32,14 @@ export default function CryptoSection() {
 						</div>
 						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 xl:pt-10 xl:px-0">
 							<div className="flex flex-col gap-2 text-base md:text-lg xl:text-xl">
-								<span>
-									Upon agreeing to the Club by-laws, and
-									paying the fees, Members of the Club receive
-									the following assets :
-								</span>
+								<span>{t('crypto-a-1')}</span>
 								<li className="list-inside indent-2">
-									Club Membership
+									{t('crypto-a-2')}
 								</li>
 								<li className="list-inside indent-2">
-									Accommodation rights
+									{t('crypto-a-3')}
 								</li>{' '}
-								<span>
-									These Assets will be tokenised and
-									Airdropped directly to their (metamask)
-									wallet as NFT tokens If you prefer, our
-									Members-Relations service can manage your
-									wallet/ tokens for you, at no extra cost.
-								</span>
+								<span>{t('crypto-a-4')}</span>
 							</div>
 						</div>
 					</div>
@@ -62,10 +55,7 @@ export default function CryptoSection() {
 						</div>
 						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 xl:pt-10 xl:px-0">
 							<p className="text-base md:text-lg xl:text-xl">
-								Nite, our dedicated marketplace platform, allows
-								Members to sell their tokenised assets
-								(membership or accommodation rights) if they
-								wish to move on... or extend their stay
+								{t('crypto-b')}
 							</p>
 						</div>
 					</div>
@@ -77,7 +67,7 @@ export default function CryptoSection() {
 							playfair.className
 						}
 					>
-						Tokenised Accomodation Rights
+						{t('crypto-title-2')}
 					</h2>
 				</div>
 				<div className="lg:grid lg:grid-cols-2 gap-12 md:gap-14 lg:gap-16 xl:gap-20 2xl:gap-24">
@@ -92,21 +82,13 @@ export default function CryptoSection() {
 						</div>
 						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 xl:pt-10 xl:px-0">
 							<div className="flex flex-col gap-2 text-base md:text-lg xl:text-xl">
-								<span>
-									Accomodation rights are tokenised, &
-									exchangeable on the Marketplace :
-								</span>
-								<span>
-									{' '}
-									Each month, we airdrop to our Members’
-									wallets (up to date with their dues) on a
-									pro-rata basis :
-								</span>
+								<span>{t('crypto-c-1')}</span>
+								<span> {t('crypto-c-2')}</span>
 								<li className="list-inside indent-2">
-									High season tokens
+									{t('crypto-c-3')}
 								</li>
 								<li className="list-inside indent-2">
-									Low season tokens
+									{t('crypto-c-4')}
 								</li>
 							</div>
 						</div>
@@ -122,9 +104,7 @@ export default function CryptoSection() {
 						</div>
 						<div className="w-full pt-8 pb-12 md:py-12 lg:py-16 xl:pt-10 xl:px-0">
 							<p className="text-base md:text-lg xl:text-xl">
-								Access to exclusive services such as SPA, boat
-								trips, sailing school, mountain biking circuit,
-								and special events.
+								{t('crypto-d')}
 							</p>
 						</div>
 					</div>

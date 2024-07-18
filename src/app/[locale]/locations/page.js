@@ -20,7 +20,7 @@ export default async function Locations({ params: { locale } }) {
 		>
 			<Header locale={lang} namespaces={namespaces} />
 			<main className="flex min-h-screen flex-col bg-off-white text-dark">
-				<HeroSection />
+				<HeroSection locale={lang} namespaces={namespaces} />
 				<LocationsSection locale={lang} namespaces={namespaces} />
 				<GoToTop />
 			</main>

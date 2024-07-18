@@ -10,7 +10,7 @@ import GoToTop from '@/components/common/go-to-top';
 import initTranslations from '@/utils/i18n';
 import TranslationsProvider from '@/utils/translations-provider';
 
-const namespaces = ['HomePage', 'Common'];
+const namespaces = ['BecomeAMember', 'Common'];
 
 export default async function BecomeAMember({ params: { locale } }) {
 	const { t, resources } = await initTranslations(locale, namespaces);
@@ -24,12 +24,12 @@ export default async function BecomeAMember({ params: { locale } }) {
 		>
 			<Header locale={lang} namespaces={namespaces} />
 			<main className="flex min-h-screen flex-col bg-off-white text-dark">
-				<HeroSection />
-				<Benefits />
+				<HeroSection locale={lang} namespaces={namespaces} />
+				<Benefits locale={lang} namespaces={namespaces} />
 				<LocationsSection locale={lang} namespaces={namespaces} />
-				<MemberHub />
-				<Pricing />
-				<FAQs />
+				<MemberHub locale={lang} namespaces={namespaces} />
+				<Pricing locale={lang} namespaces={namespaces} />
+				<FAQs locale={lang} namespaces={namespaces} />
 				<GoToTop />
 			</main>
 			<Footer locale={lang} namespaces={namespaces} />

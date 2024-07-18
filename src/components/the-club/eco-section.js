@@ -1,11 +1,14 @@
 import Image from 'next/image';
 import { Bebas_Neue } from 'next/font/google';
 import { Playfair } from 'next/font/google';
+import initTranslations from '@/utils/i18n';
 
 const bebasNeue = Bebas_Neue({ subsets: ['latin'], weight: '400' });
 const playfair = Playfair({ subsets: ['latin'] });
 
-export default function EcoSection() {
+export default async function EcoSection({ locale, namespaces }) {
+  const { t } = await initTranslations(locale, namespaces);
+
 	return (
 		<section className="relative py-0 bg-medium border-dark border-y">
 			<div className="grid grid-cols-1 md:grid-cols-2 items-center">
@@ -27,7 +30,7 @@ export default function EcoSection() {
 										playfair.className
 									}
 								>
-									A sustainable way to
+									{t('eco-title-1')}
 								</span>
 								<span
 									className={
@@ -35,16 +38,11 @@ export default function EcoSection() {
 										bebasNeue.className
 									}
 								>
-									travel
+									{t('eco-title-2')}
 								</span>
 							</h2>
 							<div className="text-center mt-6 content-wrapper">
-								<p>
-									We&apos;re creating a more sustainable way
-									to see the world - from the trees planted
-									when you book, to the eco-friendly products
-									in your kitchen.
-								</p>
+								<p>{t('eco-subtitle')}</p>
 							</div>
 							<div className="grid-cols-1 md:grid-cols-1 xl:grid-cols-2 flex justify-center mt-8">
 								<a
@@ -52,7 +50,7 @@ export default function EcoSection() {
 									target="_self"
 									href="/sustainability"
 								>
-									<span>Our sustainability principles</span>
+									<span>{t('eco-btn')}</span>
 								</a>
 							</div>
 						</div>

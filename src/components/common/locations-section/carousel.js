@@ -50,6 +50,7 @@ const EmblaCarousel = (props) => {
 								secondTitle={slide.secondTitle}
 								image={slide.image}
 								state={slide.state}
+                isUnderConstruction={slide.isUnderConstruction}
 								blur={slide.blur}
 							/>
 						))}

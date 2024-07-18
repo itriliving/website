@@ -25,13 +25,13 @@ export default async function TheClub({ params: { locale } }) {
 		>
 			<Header locale={lang} namespaces={namespaces} />
 			<main className="flex flex-col justify-between min-h-screen bg-off-white text-dark">
-				<HeroSection />
-				<ExtraSection />
-				<SpaceSection />
-				<KasbahsSection />
-				<EcoSection />
-				<BenefitsSection />
-				<CryptoSection />
+				<HeroSection locale={lang} namespaces={namespaces} />
+				<ExtraSection locale={lang} namespaces={namespaces} />
+				<SpaceSection locale={lang} namespaces={namespaces} />
+				<KasbahsSection locale={lang} namespaces={namespaces} />
+				<EcoSection locale={lang} namespaces={namespaces} />
+				<BenefitsSection locale={lang} namespaces={namespaces} />
+				<CryptoSection locale={lang} namespaces={namespaces} />
 				<GoToTop />
 			</main>
 			<Footer locale={lang} namespaces={namespaces} />

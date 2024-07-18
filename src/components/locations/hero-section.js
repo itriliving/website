@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Playfair } from 'next/font/google';
+import initTranslations from '@/utils/i18n';
 
 const playfair = Playfair({ subsets: ['latin'] });
 
-export default function HeroSection() {
+export default async function HeroSection({ locale, namespaces }) {
+  const { t } = await initTranslations(locale, namespaces);
 	return (
 		<section className="relative py-0 bg-medium border-b border-dark">
 			<div className="flex flex-col items-center md:flex-row">
@@ -17,18 +19,11 @@ export default function HeroSection() {
 									playfair.className
 								}
 							>
-								Embrace the Itri Community Vibe
+								{t('hero-title')}
 							</h1>
 							<div className="mt-6 text-base md:text-lg xl:text-xl">
 								<p>
-									Itri Residences Beach & SPA, is continuously
-									growing. We have several projects currently
-									under construction and others under
-									consideration, all designed to offer
-									authentic and enriching living experiences.
-									Stay tuned for updates on our upcoming
-									locations and join the Itri Living
-									community.
+									{t('hero-subtitle')}
 								</p>
 							</div>
 							<div className="flex flex-row gap-2 justify-center md:justify-start flex-wrap mt-6"></div>
@@ -38,14 +33,14 @@ export default function HeroSection() {
 									target="_blank"
 									href="/membership-schedule-meeting"
 								>
-									<span>Request a Call</span>
+									<span>{t('cta-1')}</span>
 								</Link>
 								<Link
 									className="font-semibold inline-flex items-center justify-center rounded-[3.125rem] active:outline-none active:duration-[50ms] focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 cursor-pointer disabled:pointer-events-none disabled:opacity-40 ring-offset-transparent w-full transition-colors duration-[250ms] min-w-[10rem] text-base gap-2 px-6 py-3 text-off-white bg-dark hover:bg-dark/90 active:bg-dark/80 focus-visible:ring-black "
 									target="_self"
 									href="/membership#membershipTiers"
 								>
-									<span>Apply for Membership</span>
+									<span>{t('cta-2')}</span>
 								</Link>
 							</div>
 						</div>

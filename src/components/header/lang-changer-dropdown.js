@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
-import i18nConfig from '../../../i18Config';
+import i18nConfig from '../../config/i18Config';
 
 export default function LangChangerDropdown() {
 	const { i18n } = useTranslation();
@@ -14,7 +14,6 @@ export default function LangChangerDropdown() {
 	const [selected, setSelected] = useState(i18n.language);
 
 	const handleChange = (newLocale) => {
-
 		const days = 30;
 		const date = new Date();
 		date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
@@ -47,10 +46,10 @@ export default function LangChangerDropdown() {
 					handleChange('en');
 				}}
 				className={
-					'pr-20 text-left w-full select-none relative px-6 text-base py-3' +
+					'pr-20 text-left w-full select-none relative px-6 text-base py-3 hover:bg-medium/60 border-l-2' +
 					(selected === 'en'
-						? ' font-semibold bg-medium'
-						: ' hover:bg-medium/50')
+						? ' font-semibold border-dark'
+						: ' border-transparent')
 				}
 			>
 				English
@@ -61,10 +60,10 @@ export default function LangChangerDropdown() {
 					handleChange('fr');
 				}}
 				className={
-					'pr-20 text-left w-full select-none relative px-6 text-base py-3' +
+					'pr-20 text-left w-full select-none relative px-6 text-base py-3 hover:bg-medium/60 border-l-2' +
 					(selected === 'fr'
-						? ' font-semibold bg-medium'
-						: ' hover:bg-medium/50')
+						? ' font-semibold border-dark'
+						: ' border-transparent')
 				}
 			>
 				French
@@ -75,10 +74,10 @@ export default function LangChangerDropdown() {
 					handleChange('nl');
 				}}
 				className={
-					'pr-20 text-left w-full select-none relative px-6 text-base py-3' +
+					'pr-20 text-left w-full select-none relative px-6 text-base py-3 hover:bg-medium/60 border-l-2' +
 					(selected === 'nl'
-						? ' font-semibold bg-medium'
-						: ' hover:bg-medium/50')
+						? ' font-semibold border-dark'
+						: ' border-transparent')
 				}
 			>
 				Dutch

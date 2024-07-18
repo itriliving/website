@@ -1,10 +1,12 @@
-import BenefitsCard from './benefits-card';
+
 import { Playfair } from 'next/font/google';
 import BenefitsCarousel from './benefits-carousel';
+import initTranslations from '@/utils/i18n';
 
 const playfair = Playfair({ subsets: ['latin'] });
 
-export default function BenefitsSection() {
+export default async function BenefitsSection({ locale, namespaces }) {
+  const { t } = await initTranslations(locale, namespaces);
 	return (
 		<section className="relative py-12 md:py-14 lg:py-16 xl:py-20 2xl:py-24">
 			<div className="mx-auto px-[6.67vw] sm:px-[12vw] md:px-10 lg:px-12 md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem] ">
@@ -16,13 +18,10 @@ export default function BenefitsSection() {
 								playfair.className
 							}
 						>
-							The Benefits
+							{t('benefits-title')}
 						</h3>
 						<p className="text-lg md:text-xl xl:text-2xl max-w-[1000px]">
-							Enjoy a range of state-of-the-art accommodation
-							facilities and services during your stay, including
-							fitness amenities, exclusive events, a wellness
-							center, and more.
+							{t('benefits-subtitle')}
 						</p>
 					</div>
 					<BenefitsCarousel />

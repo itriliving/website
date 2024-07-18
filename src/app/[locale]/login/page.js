@@ -4,10 +4,14 @@ import LoginHeader from '@/components/common/login-header';
 import LoginFooter from '@/components/common/login-footer';
 import { Playfair } from 'next/font/google';
 import LoginForm from '@/components/home/login/login-form';
+import initTranslations from '@/utils/i18n';
 
 const playfair = Playfair({ subsets: ['latin'] });
 
-export default function SignUp() {
+const namespaces = ['Login', 'Common'];
+
+export default async function SignUp({ params: { locale } }) {
+	const { t, ressources } = await initTranslations(locale, namespaces);
 	return (
 		<>
 			<main className="relative md:flex min-h-[100vh]">
@@ -22,14 +26,16 @@ export default function SignUp() {
 										playfair.className
 									}
 								>
-									Login to your Itri.living account
+									{t('login-title')}
 								</h2>
 							</div>
 							<LoginForm />
-							
+
 							<div className="relative text-center flex items-center gap-3 my-6">
 								<span className="block h-[1px] w-full border-t"></span>
-								<span className="shrink-0 grow-0 text-sm">OR</span>
+								<span className="shrink-0 grow-0 text-sm">
+									OR
+								</span>
 								<span className="block h-[1px] w-full border-t"></span>
 							</div>
 
@@ -68,7 +74,7 @@ export default function SignUp() {
 								</a>
 							</div>
 							<p className="text-center mt-6">
-								Don&apos;t have an account?{}{' '}
+								Don&apos;t have an account?
 								<Link
 									className="ml-1 font-medium underline text-dark hover:text-dark/70 active:text-extra-light"
 									href="/login"

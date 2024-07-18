@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import FooterHeading from './footer-heading';
+import initTranslations from '@/utils/i18n';
 
-export default function Footer() {
+export default async function Footer({ locale, namespaces }) {
+	const { t } = await initTranslations(locale, namespaces);
+
 	return (
 		<footer className="bg-dark py-12 md:py-16 lg:py-24 lg:px-48">
 			<div className="mx-auto px-[6.67vw] sm:px-[12vw] md:px-10 lg:px-12 md:max-w-4xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem] ">
@@ -17,50 +20,69 @@ export default function Footer() {
 						/>
 						<p className="text-off-white/[.75] text-sm  max-w-[19.5rem] text-center">
 							{' '}
-							Discover dynamic spaces, engaging events, and an
-							interactive online Member Hub.
+							{t('Common:footer-sublogo')}
 						</p>
 					</div>
 					<div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4 py-8">
 						<div>
-							<FooterHeading text="PRODUCT" />
+							<FooterHeading text={t('Common:product')} />
 							<div className="text-off-white/[.75] text-sm flex flex-col space-y-2">
-								<Link href={'/locations'}>Locations</Link>
-								<Link href={'/'}>Spaces</Link>
-								<Link href={'/'}>Community</Link>
-								<Link href={'/'}>Benefits</Link>
-								<Link href={'/'}>Member Deals</Link>
-								<Link href={'/'}>Mobile App</Link>
-								<Link href={'/'}>Earn 50% per Referral</Link>
+								<Link href={'/locations'}>
+									{t('Common:locations')}
+								</Link>
+								<Link href={'/'}>{t('Common:spaces')}</Link>
+								<Link href={'/'}>{t('Common:community')}</Link>
+								<Link href={'/'}>{t('Common:benefits')}</Link>
+								<Link href={'/'}>
+									{t('Common:member-deals')}
+								</Link>
+								<Link href={'/'}>{t('Common:mobile-app')}</Link>
+								<Link href={'/'}>{t('Common:referral')}</Link>
 							</div>
 						</div>
 						<div>
-							<FooterHeading text="COMPANY" />
+							<FooterHeading text={t('Common:company')} />
 							<div className="text-off-white/[.75] text-sm flex flex-col space-y-2">
-								<Link href={'/locations'}>About Us</Link>
-								<Link href={'/'}>Values</Link>
-								<Link href={'/'}>Press</Link>
-								<Link href={'/'}>Sustainability</Link>
-								<Link href={'/'}>Real Estate Partners</Link>
-								<Link href={'/'}>Blog</Link>
-								<Link href={'/'}>Code of Conduct</Link>
-								<Link href={'/'}>Privacy Policy</Link>
-								<Link href={'/'}>Terms & Conditions</Link>
+								<Link href={'/locations'}>
+									{t('Common:about-us')}
+								</Link>
+								<Link href={'/'}>{t('Common:values')}</Link>
+								<Link href={'/'}>{t('Common:press')}</Link>
+								<Link href={'/'}>
+									{t('Common:sustainability')}
+								</Link>
+								<Link href={'/'}>
+									{t('Common:real-estate-partners')}
+								</Link>
+								<Link href={'/'}>{t('Common:blog')}</Link>
+								<Link href={'/'}>
+									{t('Common:code-of-conduct')}
+								</Link>
+								<Link href={'/'}>
+									{t('Common:privacy-policy')}
+								</Link>
+								<Link href={'/'}>
+									{t('Common:terms-conditions')}
+								</Link>
 							</div>
 						</div>
 						<div className="grid grid-rows-2">
 							<div>
-								<FooterHeading text="SUPPORT" />
+								<FooterHeading text={t('Common:support')} />
 								<div className="text-off-white/[.75] text-sm flex flex-col space-y-2 mb-8">
-									<Link href={'/'}>Contact Us</Link>
-									<Link href={'/'}>ITRI Guides</Link>
-									<Link href={'/'}>FAQs</Link>
+									<Link href={'/'}>
+										{t('Common:contact-us')}
+									</Link>
+									<Link href={'/'}>
+										{t('Common:itri-guides')}
+									</Link>
+									<Link href={'/'}>{t('Common:faqs')}</Link>
 								</div>
 							</div>
 						</div>
 						<div className="grid grid-rows-2">
 							<div>
-								<FooterHeading text="SOCIAL" />
+								<FooterHeading text={t('Common:social')} />
 								<div className="text-off-white flex flex-wrap gap-4 mb-8">
 									<a
 										href="https://www.facebook.com/"
@@ -207,7 +229,7 @@ export default function Footer() {
 								</a>
 								<a href="wwww.google.com" target="_blank">
 									<Image
-                    className='w-auto h-auto'
+										className="w-auto h-auto"
 										src="/svg/apple-store-badge.svg"
 										alt="Apple store"
 										width={150}

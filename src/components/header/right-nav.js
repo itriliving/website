@@ -5,6 +5,7 @@ import CartIcon from './cart-icon';
 import ProfileIcon from './profile-icon';
 import MenuIcon from './menu-icon';
 import MenuPopup from './menu-popup';
+import LangChanger from './lang-changer';
 
 export default function RightNav() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -12,15 +13,13 @@ export default function RightNav() {
 	return (
 		<ul className="relative flex items-center gap-4 pl-6">
 			<li>
-				<button>
-					<LangIcon />
-				</button>
+				<LangChanger />
 			</li>
-			<li>
+			{/* <li>
 				<button>
 					<CartIcon />
 				</button>
-			</li>
+			</li> */}
 			<li>
 				<button onClick={() => setIsOpen(!isOpen)}>
 					<div className="flex items-center p-[6px] rounded-full gap-2 border border-dark">

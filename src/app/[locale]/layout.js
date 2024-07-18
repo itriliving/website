@@ -9,9 +9,9 @@ export const metadata = {
 		'Itri Living is a community of like-minded individuals who value exceptional moments, a sense of community, and a love for our planet.',
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ params: { locale }, children }) {
 	return (
-		<html lang="en">
+		<html lang={locale}>
 			<body className={raleway.className}>{children}</body>
 		</html>
 	);

@@ -17,8 +17,12 @@ export default async function BecomeAMember({ params: { locale } }) {
 	const lang = locale;
 
 	return (
-		<>
-			<Header />
+		<TranslationsProvider
+			locale={locale}
+			resources={resources}
+			namespaces={namespaces}
+		>
+			<Header locale={lang} namespaces={namespaces} />
 			<main className="flex min-h-screen flex-col bg-off-white text-dark">
 				<HeroSection />
 				<Benefits />
@@ -28,7 +32,7 @@ export default async function BecomeAMember({ params: { locale } }) {
 				<FAQs />
 				<GoToTop />
 			</main>
-			<Footer />
-		</>
+			<Footer locale={lang} namespaces={namespaces} />
+		</TranslationsProvider>
 	);
 }

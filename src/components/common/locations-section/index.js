@@ -13,7 +13,7 @@ export default async function LocationsSection({ locale, namespaces }) {
 			city: 'Nador',
 			secondTitle: 'Marchicha',
 			image: '/img/locations/location-img1.jpg',
-			state: t('under-construction'),
+			state: t('Common:under-construction'),
 			blur: false,
 		},
 		{
@@ -21,7 +21,7 @@ export default async function LocationsSection({ locale, namespaces }) {
 			city: 'Dakhla',
 			secondTitle: 'Cabanows',
 			image: '/img/locations/location-img2.jpg',
-			state: t('under-consideration'),
+			state: t('Common:under-consideration'),
 			blur: true,
 		},
 		{
@@ -29,7 +29,7 @@ export default async function LocationsSection({ locale, namespaces }) {
 			city: 'Merzouga',
 			secondTitle: 'Lodges',
 			image: '/img/locations/location-img3.jpg',
-			state: t('under-consideration'),
+			state: t('Common:under-consideration'),
 			blur: true,
 		},
 		{
@@ -37,7 +37,7 @@ export default async function LocationsSection({ locale, namespaces }) {
 			city: 'Sierra leone',
 			secondTitle: 'resort',
 			image: '/img/locations/location-img4.jpg',
-			state: t('under-consideration'),
+			state: t('Common:under-consideration'),
 			blur: true,
 		},
 		{
@@ -45,7 +45,7 @@ export default async function LocationsSection({ locale, namespaces }) {
 			city: 'Marrakech',
 			secondTitle: 'Takerkoust',
 			image: '/img/locations/location-img5.jpg',
-			state: t('under-consideration'),
+			state: t('Common:under-consideration'),
 			blur: true,
 		},
   ];
@@ -56,12 +56,10 @@ export default async function LocationsSection({ locale, namespaces }) {
 				<div className="w-full max-w-xl mr-auto mb-12">
 					<div className="max-w-lg lg:max-w-2xl text-left undefined">
 						<h2 className="tracking-[.1em] font-body font-medium uppercase text-light text-sm mb-4">
-							{t('locations')}
+							{t('Common:locations')}
 						</h2>
 						<p className="tracking-tight text-dark text-3xl lg:text-4xl font-medium __className_42ebce">
-							<span>
-								{t('locations-subtext')}
-							</span>
+							<span>{t('Common:locations-subtext')}</span>
 						</p>
 					</div>
 				</div>

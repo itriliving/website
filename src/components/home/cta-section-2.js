@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Bebas_Neue } from 'next/font/google';
+import initTranslations from '@/utils/i18n';
 
 const bebasNeue = Bebas_Neue({ subsets: ['latin'], weight: '400' });
 
-export default function CtaSection2() {
+export default async function CtaSection2({ locale, namespaces }) {
+  const { t } = await initTranslations(locale, namespaces);
 	return (
 		<section className="relative border-dark py-0 bg-medium border-y">
 			<div className="grid grid-cols-1 md:grid-cols-2 items-center">
@@ -22,19 +24,19 @@ export default function CtaSection2() {
 						<div className="max-w-xl mx-auto">
 							<h2 className="text-center">
 								<span className="font-heading text-2xl block mb-4">
-									The world feels free with ITRI
+									{t('cta-title-1')}
 								</span>
-								<span className={"font-heading-secondary tracking-normal text-5xl lg:text-6xl xl:text-7xl " + bebasNeue.className}>
-									JOIN US.
+								<span
+									className={
+										'font-heading-secondary tracking-normal text-5xl lg:text-6xl xl:text-7xl ' +
+										bebasNeue.className
+									}
+								>
+									{t('cta-title-2')}
 								</span>
 							</h2>
 							<div className="text-center mt-6 content-wrapper">
-								<p>
-									Gain Access to Exclusive ITRI Living Spaces
-									Enjoy beautifully designed environments
-									equipped with everything you need for
-									comfort, relaxation and inspiration.
-								</p>
+								<p>{t('cta-subtitle')}</p>
 							</div>
 							<div className="grid gap-4 grid-cols-1 md:grid-cols-1 xl:grid-cols-2 mt-8">
 								<Link
@@ -47,7 +49,7 @@ export default function CtaSection2() {
 									href={'/become-a-member'}
 									className="font-semibold inline-flex items-center justify-center rounded-[3.125rem] active:outline-none active:duration-[50ms] focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 cursor-pointer disabled:pointer-events-none disabled:opacity-40 ring-offset-transparent w-full transition-colors duration-[250ms] min-w-[10rem] text-base gap-2 px-6 py-3 text-off-white bg-dark hover:bg-dark/90 active:bg-dark/80 focus-visible:ring-dark "
 								>
-									<span>Become a Member</span>
+									<span>{t('become-a-member')}</span>
 								</Link>
 							</div>
 						</div>

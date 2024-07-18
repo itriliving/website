@@ -4,9 +4,11 @@ import CarouselSlide from './carousel-slide';
 import ArrowLeft from '@/components/common/arrow-left';
 import ArrowRight from '@/components/common/arrow-right';
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function Carousel() {
 	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const { t } = useTranslation('HomePage');
 
 	const scrollPrev = useCallback(() => {
 		if (emblaApi) emblaApi.scrollPrev();
@@ -21,28 +23,28 @@ export default function Carousel() {
 			<div className="embla" ref={emblaRef}>
 				<div className="embla-container">
 					<CarouselSlide
-						text="I had the privilege of discovering the location and the amazing concept of Itri Living and their first resort. As a writer, I truly love the concept and the magic of the place, it's simply amazing for my inspiration."
+						text={t('t-quote-1')}
 						name="Aurora Watson"
 						img="/img/person1.webp"
-						work={'Writer'}
+						work={t('t-job-1')}
 					/>
 					<CarouselSlide
-						text="Great work spaces, amazing rooms, location within the cities is fantastic, and the community is a good mix of geniuses and really interesting people."
+						text={t('t-quote-2')}
 						name="Ramon Arora"
 						img="/img/person2.webp"
-						work={'Marketer'}
+						work={t('t-job-2')}
 					/>
 					<CarouselSlide
-						text="I made professional connections, relaxed and got great quality work done. I love Outsite spaces, it makes working remote much more fun."
+						text={t('t-quote-3')}
 						name="Lora"
 						img="/img/person3.webp"
-						work={'Designer'}
+						work={t('t-job-3')}
 					/>
 					<CarouselSlide
-						text="I was staying at all their places in a row and totally loved it. I arrived with no expectations and it completely blew my mind."
+						text={t('t-quote-4')}
 						name="Sammy Johnson"
 						img="/img/person4.webp"
-						work={'Photographer'}
+						work={t('t-job-4')}
 					/>
 				</div>
 			</div>

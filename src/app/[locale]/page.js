@@ -15,7 +15,6 @@ const namespaces = ['HomePage', 'Common'];
 
 export default async function Home({ params: { locale } }) {
   const { t, resources } = await initTranslations(locale, namespaces);
-
   const lang = locale;
 
 	return (
@@ -24,17 +23,17 @@ export default async function Home({ params: { locale } }) {
 			resources={resources}
 			namespaces={namespaces}
 		>
-			<Header />
+			<Header locale={lang} namespaces={namespaces} />
 			<main className="flex min-h-screen flex-col bg-off-white text-dark">
 				<HeroSection locale={lang} namespaces={namespaces} />
 				<LocationsSection locale={lang} namespaces={namespaces} />
 				<CtaSection1 locale={lang} namespaces={namespaces} />
 				<WbamSection locale={lang} namespaces={namespaces} />
 				<Testimonials />
-				<Blog />
-				<CtaSection2 />
+				<Blog locale={lang} namespaces={namespaces} />
+				<CtaSection2 locale={lang} namespaces={namespaces} />
 			</main>
-			<Footer />
+			<Footer locale={lang} namespaces={namespaces} />
 		</TranslationsProvider>
 	);
 }

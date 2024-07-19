@@ -4,16 +4,21 @@ import LoginHeader from '@/components/common/login-header';
 import LoginFooter from '@/components/common/login-footer';
 import { Playfair } from 'next/font/google';
 import LoginForm from '@/components/home/login/login-form';
+import TranslationsProvider from '@/utils/translations-provider';
 import initTranslations from '@/utils/i18n';
 
 const playfair = Playfair({ subsets: ['latin'] });
 
 const namespaces = ['Login', 'Common'];
 
-export default async function SignUp({ params: { locale } }) {
-	const { t, ressources } = await initTranslations(locale, namespaces);
+export default async function Login({ params: { locale } }) {
+	const { t, resources } = await initTranslations(locale, namespaces);
 	return (
-		<>
+		<TranslationsProvider
+			locale={locale}
+			resources={resources}
+			namespaces={namespaces}
+		>
 			<main className="relative md:flex min-h-[100vh]">
 				<div className="w-full md:w-1/2">
 					<div className="max-w-2xl mx-auto min-h-full">
@@ -33,8 +38,8 @@ export default async function SignUp({ params: { locale } }) {
 
 							<div className="relative text-center flex items-center gap-3 my-6">
 								<span className="block h-[1px] w-full border-t"></span>
-								<span className="shrink-0 grow-0 text-sm">
-									OR
+								<span className="uppercase shrink-0 grow-0 text-sm">
+									{t('or')}
 								</span>
 								<span className="block h-[1px] w-full border-t"></span>
 							</div>
@@ -52,7 +57,7 @@ export default async function SignUp({ params: { locale } }) {
 										alt="Facebook logo"
 									/>
 									<p className="text-off-white px-2 text-sm text-left">
-										Continue with Facebook
+										{t('continue-facebook')}
 									</p>
 								</a>
 								<a
@@ -69,17 +74,17 @@ export default async function SignUp({ params: { locale } }) {
 										/>
 									</div>
 									<p className="text-off-white px-2 text-sm text-left">
-										Continue with Google
+										{t('continue-google')}
 									</p>
 								</a>
 							</div>
 							<p className="text-center mt-6">
-								Don&apos;t have an account?
+								{t('no-account')}
 								<Link
 									className="ml-1 font-medium underline text-dark hover:text-dark/70 active:text-extra-light"
 									href="/login"
 								>
-									Sign Up
+									{t('sign-up')}
 								</Link>
 							</p>
 						</div>
@@ -100,6 +105,6 @@ export default async function SignUp({ params: { locale } }) {
 				</div>
 			</main>
 			<LoginFooter />
-		</>
+		</TranslationsProvider>
 	);
 }

@@ -1,8 +1,8 @@
 'use client';
 import { useState, useEffect, useContext } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import SignupForm from './signup-form';
+import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 import { auth, provider } from '@/firebase/firebase.config';
 import {
 	signInWithPopup,
@@ -10,9 +10,11 @@ import {
 	getAdditionalUserInfo,
 	onAuthStateChanged,
 } from 'firebase/auth';
-
+import SignupForm from './signup-form';
 
 export default function SignupSection() {
+	const { t } = useTranslation();
+
 	const router = useRouter();
 
 	useEffect(() => {
@@ -38,12 +40,12 @@ export default function SignupSection() {
 
 				console.log(idpData);
 				console.log(user);
-        if (user) {
-          router.push('/profile');
-        } else {
-          console.error('User not found');
-          router.push('/login');
-        }
+				if (user) {
+					router.push('/profile');
+				} else {
+					console.error('User not found');
+					router.push('/login');
+				}
 			})
 			.catch((error) => {
 				const errorCode = error.code;
@@ -61,7 +63,7 @@ export default function SignupSection() {
 			<SignupForm />
 			<div className="relative text-center flex items-center gap-3 my-6">
 				<span className="block h-[1px] w-full border-t"></span>
-				<span className="shrink-0 grow-0 text-sm">OR</span>
+				<span className="uppercase shrink-0 grow-0 text-sm">{t('or')}</span>
 				<span className="block h-[1px] w-full border-t"></span>
 			</div>
 
@@ -78,7 +80,7 @@ export default function SignupSection() {
 						alt="Facebook logo"
 					/>
 					<p className="text-off-white px-2 text-sm text-left">
-						Continue with Facebook
+						{t('continue-facebook')}
 					</p>
 				</a>
 				<button
@@ -95,7 +97,7 @@ export default function SignupSection() {
 						/>
 					</div>
 					<p className="text-off-white px-2 text-sm text-left">
-						Continue with Google
+						{t('continue-google')}
 					</p>
 				</button>
 			</div>

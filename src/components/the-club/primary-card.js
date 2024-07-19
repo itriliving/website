@@ -8,7 +8,7 @@ export default function PrimaryCard({
 	image,
 	pro = false,
 }) {
-	const { t } = useTranslation('TheClub');
+	const { t } = useTranslation();
 
 	return (
 		<div className="relative flex flex-col gap-4 md:gap-6">

@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 export default function Carousel() {
 	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-  const { t } = useTranslation('HomePage');
+  const { t } = useTranslation();
 
 	const scrollPrev = useCallback(() => {
 		if (emblaApi) emblaApi.scrollPrev();

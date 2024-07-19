@@ -4,12 +4,21 @@ import LoginHeader from '@/components/common/login-header';
 import LoginFooter from '@/components/common/login-footer';
 import { Playfair } from 'next/font/google';
 import SignupSection from '@/components/signup/signup-section';
+import initTranslations from '@/utils/i18n';
+import TranslationsProvider from '@/utils/translations-provider';
 
 const playfair = Playfair({ subsets: ['latin'] });
+const namespaces = ['Signup', 'Common'];
 
-export default function SignUp() {
+export default async function SignUp({ params: { locale } }) {
+  const { t, resources } = await initTranslations(locale, namespaces);
+
 	return (
-		<>
+		<TranslationsProvider
+			locale={locale}
+			resources={resources}
+			namespaces={namespaces}
+		>
 			<main className="relative md:flex min-h-[100vh]">
 				<div className="w-full md:w-1/2">
 					<div className="max-w-2xl mx-auto min-h-full">
@@ -22,19 +31,19 @@ export default function SignUp() {
 										playfair.className
 									}
 								>
-									Create your Itri.living account
+									{t('sign-up-title')}
 								</h2>
-								<p>Join us and explore the benefits!</p>
+								<p>{t('sign-up-subtitle')}</p>
 							</div>
 							<SignupSection />
 
 							<p className="text-center mt-6">
-								Already have an account?{}{' '}
+								{t('account-existing')}{' '}
 								<Link
 									className="ml-1 font-medium underline text-dark hover:text-dark/70 active:text-extra-light"
 									href="/login"
 								>
-									Sign In
+									{t('sign-in')}
 								</Link>
 							</p>
 						</div>
@@ -55,6 +64,6 @@ export default function SignUp() {
 				</div>
 			</main>
 			<LoginFooter />
-		</>
+		</TranslationsProvider>
 	);
 }

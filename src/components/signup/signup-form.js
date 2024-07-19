@@ -2,6 +2,7 @@
 import { useRouter } from 'next/navigation';
 import { useState, useEffect, useContext } from 'react';
 import { Formik } from 'formik';
+import { useTranslation } from 'react-i18next';
 import { auth } from '@/firebase/firebase.config';
 import {
 	createUserWithEmailAndPassword,
@@ -10,6 +11,7 @@ import {
 
 export default function SignupForm() {
 	const router = useRouter();
+	const { t } = useTranslation();
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -20,8 +22,6 @@ export default function SignupForm() {
 
 		return () => unsubscribe();
 	}, [router]);
-
-	
 
 	return (
 		<div className="space-y-8">
@@ -36,52 +36,45 @@ export default function SignupForm() {
 				validate={(values) => {
 					const errors = {};
 					if (!values.firstName) {
-						errors.firstName = 'Required';
+						errors.firstName = t('required');
 					} else if (values.firstName.length > 24) {
-						errors.firstName =
-							'First name cannot exceed 24 characters';
+						errors.firstName = t('fname-char-max');
 					}
 					if (!values.lastName) {
-						errors.lastName = 'Required';
+						errors.lastName = t('required');
 					} else if (values.lastName.length > 24) {
-						errors.lastName =
-							'Last name cannot exceed 24 characters';
+						errors.lastName = t('lname-char-max');
 					}
 					if (!values.phone) {
-						errors.phone = 'Phone number cannot be empty';
+						errors.phone = t('phone-empty');
 					} else if (!/^\d{10}$/.test(values.phone)) {
-						errors.phone = 'Invalid phone number';
+						errors.phone = t('phone-invalid');
 					}
 					if (!values.email) {
-						errors.email = 'Email cannot be empty';
+						errors.email = t('email-empty');
 					} else if (
 						!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
 							values.email
 						)
 					) {
-						errors.email = 'Invalid email address';
+						errors.email = t('email-invalid');
 					}
 					if (!values.password) {
-						errors.password = 'Password cannot be empty';
+						errors.password = t('password-empty');
 					} else if (values.password.length < 8) {
-						errors.password =
-							'Password must be at least 8 characters';
+						errors.password = t('password-short');
 					} else if (!/[A-Z]/.test(values.password)) {
-						errors.password =
-							'Password must contain at least one uppercase letter';
+						errors.password = t('password-uppercase');
 					} else if (!/[a-z]/.test(values.password)) {
-						errors.password =
-							'Password must contain at least one lowercase letter';
+						errors.password = t('password-loswercase');
 					} else if (!/[0-9]/.test(values.password)) {
-						errors.password =
-							'Password must contain at least one number';
+						errors.password = t('password-number');
 					} else if (
 						!/[\^$*.\[\]{}()?\-"!@#%&/,><\':;|_~`]/.test(
 							values.password
 						)
 					) {
-						errors.password =
-							'Password must contain at least one special character';
+						errors.password = t('password-special-char');
 					}
 					return errors;
 				}}
@@ -122,7 +115,7 @@ export default function SignupForm() {
 									className="text-dark block font-medium mb-2"
 									htmlFor="firstName"
 								>
-									First Name
+									{t('first-name')}
 								</label>
 								<input
 									className={`block text-base w-full p-4 border bg-transparent rounded-md font-medium text-dark/90 transition-colors focus:outline-none focus:ring-0 focus:bg-dark/[.02] focus:shadow-[0_2px_4px_0_rgba(34,34,34,0.12)] disabled:bg-gray-500 disabled:border-dark/15 disabled:cursor-not-allowed placeholder:text-base placeholder:text-dark/30 placeholder:font-normal ${
@@ -132,7 +125,7 @@ export default function SignupForm() {
 									}`}
 									type="text"
 									name="firstName"
-									placeholder="First Name"
+									placeholder={t('first-name')}
 									onChange={handleChange}
 									onBlur={handleBlur}
 									value={values.firstName}
@@ -148,7 +141,7 @@ export default function SignupForm() {
 									className="text-dark block font-medium mb-2"
 									htmlFor="lastName"
 								>
-									Last Name
+									{t('last-name')}
 								</label>
 								<input
 									className={`block text-base w-full p-4 border bg-transparent rounded-md font-medium text-dark/90 transition-colors focus:outline-none focus:ring-0 focus:bg-dark/[.02] focus:shadow-[0_2px_4px_0_rgba(34,34,34,0.12)] disabled:bg-gray-500 disabled:border-dark/15 disabled:cursor-not-allowed placeholder:text-base placeholder:text-dark/30 placeholder:font-normal ${
@@ -158,7 +151,7 @@ export default function SignupForm() {
 									}`}
 									type="text"
 									name="lastName"
-									placeholder="Last Name"
+									placeholder={t('last-name')}
 									onChange={handleChange}
 									onBlur={handleBlur}
 									value={values.lastName}
@@ -175,7 +168,7 @@ export default function SignupForm() {
 								className="text-dark block font-medium mb-2"
 								htmlFor="phone"
 							>
-								Phone Number
+								{t('phone-number')}
 							</label>
 							<input
 								className={`block text-base w-full p-4 border bg-transparent rounded-md font-medium text-dark/90 transition-colors focus:outline-none focus:ring-0 focus:bg-dark/[.02] focus:shadow-[0_2px_4px_0_rgba(34,34,34,0.12)] disabled:bg-gray-500 disabled:border-dark/15 disabled:cursor-not-allowed placeholder:text-base placeholder:text-dark/30 placeholder:font-normal ${
@@ -185,7 +178,7 @@ export default function SignupForm() {
 								}`}
 								type="text"
 								name="phone"
-								placeholder="Phone Number"
+								placeholder={t('phone-number')}
 								onChange={handleChange}
 								onBlur={handleBlur}
 								value={values.phone}
@@ -228,7 +221,7 @@ export default function SignupForm() {
 								className="text-dark block font-medium mb-2"
 								htmlFor="password"
 							>
-								Password
+								{t('password')}
 							</label>
 							<input
 								className={`block text-base w-full p-4 border bg-transparent rounded-md font-medium text-dark/90 transition-colors focus:outline-none focus:ring-0 focus:bg-dark/[.02] focus:shadow-[0_2px_4px_0_rgba(34,34,34,0.12)] disabled:bg-gray-500 disabled:border-dark/15 disabled:cursor-not-allowed placeholder:text-base placeholder:text-dark/30 placeholder:font-normal ${
@@ -239,7 +232,7 @@ export default function SignupForm() {
 								id="password"
 								type="password"
 								name="password"
-								placeholder="Password"
+								placeholder={t('password')}
 								onChange={handleChange}
 								onBlur={handleBlur}
 								value={values.password}
@@ -256,7 +249,9 @@ export default function SignupForm() {
 							type="submit"
 							disabled={isSubmitting}
 						>
-							<span className="leading-6">Create Account</span>
+							<span className="leading-6">
+								{t('create-account')}
+							</span>
 						</button>
 					</form>
 				)}

@@ -7,7 +7,7 @@ import ArrowRight from '@/components/common/arrow-right';
 import { useTranslation } from 'react-i18next';
 
 export default function BenefitsCarousel() {
-	const { t } = useTranslation('TheClub');
+	const { t } = useTranslation();
 
 	const benefitsArray = [
 		{ index: 1, image: '/img/the-club-d1.jpg', title: t('benefit-1') },

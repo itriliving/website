@@ -1,7 +1,10 @@
 'use client';
 import { Formik } from 'formik';
+import { useTranslation } from 'react-i18next';
 
 export default function LoginForm() {
+	const { t } = useTranslation();
+
 	return (
 		<div className="space-y-8">
 			<Formik
@@ -9,16 +12,16 @@ export default function LoginForm() {
 				validate={(values) => {
 					const errors = {};
 					if (!values.email) {
-						errors.email = 'Required';
+						errors.email = t('required');
 					} else if (
 						!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
 							values.email
 						)
 					) {
-						errors.email = 'Invalid email address';
+						errors.email = t('invalid-email-address');
 					}
 					if (!values.password) {
-						errors.password = 'Required';
+						errors.password = t('required');
 					}
 					return errors;
 				}}
@@ -47,7 +50,11 @@ export default function LoginForm() {
 								Email
 							</label>
 							<input
-								className="block text-base w-full p-4 border bg-transparent rounded-md font-medium text-dark/90 transition-colors focus:outline-none focus:ring-0 focus:bg-dark/[.02] focus:shadow-[0_2px_4px_0_rgba(34,34,34,0.12)] disabled:bg-gray-500 disabled:border-dark/15 disabled:cursor-not-allowed placeholder:text-base placeholder:text-dark/30 placeholder:font-normal border-dark/30 hover:border-dark focus:border-dark"
+								className={`block text-base w-full p-4 border bg-transparent rounded-md font-medium text-dark/90 transition-colors focus:outline-none focus:ring-0 focus:bg-dark/[.02] focus:shadow-[0_2px_4px_0_rgba(34,34,34,0.12)] disabled:bg-gray-500 disabled:border-dark/15 disabled:cursor-not-allowed placeholder:text-base placeholder:text-dark/30 placeholder:font-normal ${
+									errors.email && touched.email
+										? 'border-red-500'
+										: 'border-dark/30 hover:border-dark focus:border-dark'
+								}`}
 								id="email"
 								type="email"
 								name="email"
@@ -67,14 +74,18 @@ export default function LoginForm() {
 								className="text-dark block font-medium mb-2"
 								htmlFor="password"
 							>
-								Password
+								{t('password')}
 							</label>
 							<input
-								className="block text-base w-full p-4 border bg-transparent rounded-md font-medium text-dark/90 transition-colors focus:outline-none focus:ring-0 focus:bg-dark/[.02] focus:shadow-[0_2px_4px_0_rgba(34,34,34,0.12)] disabled:bg-gray-500 disabled:border-dark/15 disabled:cursor-not-allowed placeholder:text-base placeholder:text-dark/30 placeholder:font-normal border-dark/30 hover:border-dark focus:border-dark"
+								className={`block text-base w-full p-4 border bg-transparent rounded-md font-medium text-dark/90 transition-colors focus:outline-none focus:ring-0 focus:bg-dark/[.02] focus:shadow-[0_2px_4px_0_rgba(34,34,34,0.12)] disabled:bg-gray-500 disabled:border-dark/15 disabled:cursor-not-allowed placeholder:text-base placeholder:text-dark/30 placeholder:font-normal ${
+									errors.password && touched.password
+										? 'border-red-500'
+										: 'border-dark/30 hover:border-dark focus:border-dark'
+								}`}
 								id="password"
 								type="password"
 								name="password"
-								placeholder="Password"
+								placeholder={t('password')}
 								onChange={handleChange}
 								onBlur={handleBlur}
 								value={values.password}
@@ -87,7 +98,7 @@ export default function LoginForm() {
 						</div>
 						<div className="mb-8">
 							<p className="font-medium underline text-base cursor-pointer hover:text-light active:text-extra-light">
-								Forgot password?
+								{t('forgot-password')}
 							</p>
 						</div>
 						<button
@@ -95,7 +106,7 @@ export default function LoginForm() {
 							type="submit"
 							disabled={isSubmitting}
 						>
-							<span className="leading-6">Sign Up</span>
+							<span className="leading-6">{t('sign-in')}</span>
 						</button>
 					</form>
 				)}

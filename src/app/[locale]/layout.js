@@ -1,7 +1,8 @@
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Raleway } from 'next/font/google';
-import './globals.css';
 import i18nConfig from '@/config/i18Config';
 import { dir } from 'i18next';
+import './globals.css';
 
 const raleway = Raleway({ subsets: ['latin'] });
 

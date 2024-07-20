@@ -30,7 +30,6 @@ export default function SignupSection() {
 	const handleGoogleSignIn = async () => {
 		signInWithPopup(auth, provider)
 			.then((result) => {
-				// This gives you a Google Access Token. You can use it to access the Google API.
 				const credential =
 					GoogleAuthProvider.credentialFromResult(result);
 				const token = credential.accessToken;
@@ -63,7 +62,9 @@ export default function SignupSection() {
 			<SignupForm />
 			<div className="relative text-center flex items-center gap-3 my-6">
 				<span className="block h-[1px] w-full border-t"></span>
-				<span className="uppercase shrink-0 grow-0 text-sm">{t('or')}</span>
+				<span className="uppercase shrink-0 grow-0 text-sm">
+					{t('or')}
+				</span>
 				<span className="block h-[1px] w-full border-t"></span>
 			</div>
 

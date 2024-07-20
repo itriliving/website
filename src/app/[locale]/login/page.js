@@ -3,7 +3,7 @@ import Link from 'next/link';
 import LoginHeader from '@/components/common/login-header';
 import LoginFooter from '@/components/common/login-footer';
 import { Playfair } from 'next/font/google';
-import LoginForm from '@/components/home/login/login-form';
+import LoginForm from '@/components/login/login-form';
 import TranslationsProvider from '@/utils/translations-provider';
 import initTranslations from '@/utils/i18n';
 
@@ -82,7 +82,7 @@ export default async function Login({ params: { locale } }) {
 								{t('no-account')}
 								<Link
 									className="ml-1 font-medium underline text-dark hover:text-dark/70 active:text-extra-light"
-									href="/login"
+									href="/signup"
 								>
 									{t('sign-up')}
 								</Link>

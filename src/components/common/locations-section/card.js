@@ -17,7 +17,7 @@ export default function Card({
 						<div
 							className={
 								'absolute w-full h-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-[1.015] transition-all duration-400' +
-								(blur ? ' blur-[2px] saturate-[.7]' : '')
+								(blur ? ' blur-[2px] saturate-[.1]' : '')
 							}
 						>
 							<Image

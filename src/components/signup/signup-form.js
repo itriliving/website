@@ -85,17 +85,16 @@ export default function SignupForm() {
 						values.password
 					)
 						.then((userCredential) => {
-							// Signed in
 							const user = userCredential.user;
 							console.log(user);
-							router.push('/profile'); // Navigate to profile page
-							setSubmitting(false); // Set submitting to false after operation
+							router.push('/profile');
+							setSubmitting(false);
 						})
 						.catch((error) => {
 							const errorCode = error.code;
 							const errorMessage = error.message;
 							console.error(errorCode, errorMessage);
-							setSubmitting(false); // Ensure to set submitting to false in case of error
+							setSubmitting(false);
 						});
 				}}
 			>

@@ -9,6 +9,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@vercel/speed-insights": "^1.0.12",
 		"embla-carousel": "^8.1.6",
 		"embla-carousel-autoplay": "^8.1.6",
 		"embla-carousel-react": "^8.1.6",

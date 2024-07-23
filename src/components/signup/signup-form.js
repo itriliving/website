@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { auth } from '@/firebase/firebase.config';
@@ -8,6 +8,8 @@ import {
 	createUserWithEmailAndPassword,
 	onAuthStateChanged,
 } from 'firebase/auth';
+import { createUser } from '@/utils/database/firestore-helper-functions';
+import { setUserLoggedIn } from '@/utils/local-storage';
 
 export default function SignupForm() {
 	const router = useRouter();
@@ -86,8 +88,22 @@ export default function SignupForm() {
 					)
 						.then((userCredential) => {
 							const user = userCredential.user;
-							console.log(user);
-							router.push('/profile');
+							createUser(user.uid, {
+								email: user.email,
+								name: `${values.firstName} ${values.lastName}`,
+								phone: values.phone,
+								photoURL: null,
+								ageRange: null,
+								gender: null,
+								status: null,
+								region: null,
+								additionalInfo: null,
+								hasCompletedFirstForm: false,
+								isRegistered: false,
+								hasBookedCall: false,
+							});
+              setUserLoggedIn(true);
+							router.push('/registration/step-1');
 							setSubmitting(false);
 						})
 						.catch((error) => {

@@ -1,6 +1,7 @@
 'use client';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import LoginForm from './login-form';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import {
@@ -14,16 +15,15 @@ import {
 	FacebookAuthProvider,
 	onAuthStateChanged,
 } from 'firebase/auth';
-import SignupForm from './signup-form';
 import {
 	createUser,
 	getUser,
 } from '@/utils/database/firestore-helper-functions';
 import { setUserLoggedIn } from '@/utils/local-storage';
 
-export default function SignupSection() {
-	const { t } = useTranslation();
+export default function LoginSection() {
 	const router = useRouter();
+	const { t } = useTranslation();
 
 	const handleGoogleSignIn = async () => {
 		try {
@@ -57,7 +57,7 @@ export default function SignupSection() {
 				}
 			} else {
 				console.error('User not found');
-				router.push('/signup');
+				router.push('/login');
 			}
 		} catch (error) {
 			const errorCode = error.code;
@@ -149,7 +149,7 @@ export default function SignupSection() {
 
 	return (
 		<>
-			<SignupForm />
+			<LoginForm />
 			<div className="relative text-center flex items-center gap-3 my-6">
 				<span className="block h-[1px] w-full border-t"></span>
 				<span className="uppercase shrink-0 grow-0 text-sm">

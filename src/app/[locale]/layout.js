@@ -2,6 +2,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Raleway } from 'next/font/google';
 import i18nConfig from '@/config/i18Config';
 import { dir } from 'i18next';
+import UserProvider from '@/components/providers/user-provider';
 import './globals.css';
 
 const raleway = Raleway({ subsets: ['latin'] });
@@ -19,7 +20,9 @@ export function generateStaticParams() {
 export default function RootLayout({ params: { locale }, children }) {
 	return (
 		<html lang={locale} dir={dir(locale)}>
-			<body className={raleway.className}>{children}</body>
+			<UserProvider>
+				<body className={raleway.className}>{children}</body>
+			</UserProvider>
 		</html>
 	);
 }

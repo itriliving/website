@@ -1,18 +1,17 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import LoginHeader from '@/components/common/login-header';
 import LoginFooter from '@/components/common/login-footer';
 import { Playfair } from 'next/font/google';
 import TranslationsProvider from '@/utils/translations-provider';
 import initTranslations from '@/utils/i18n';
-
-import LoginSection from '@/components/login/login-section';
+import FormPage1 from '@/components/registration/form-page-1';
+import HeadingPage1 from '@/components/registration/heading-page-1';
 
 const playfair = Playfair({ subsets: ['latin'] });
 
-const namespaces = ['Login', 'Common'];
+const namespaces = ['Registration', 'Common'];
 
-export default async function Login({ params: { locale } }) {
+export default async function StepOne({ params: { locale } }) {
 	const { t, resources } = await initTranslations(locale, namespaces);
 	return (
 		<TranslationsProvider
@@ -22,29 +21,13 @@ export default async function Login({ params: { locale } }) {
 		>
 			<main className="relative md:flex min-h-[100vh]">
 				<div className="w-full md:w-1/2">
-					<div className="max-w-2xl mx-auto min-h-full">
+					<div className="max-w-2xl xl:max-w-3xl mx-auto min-h-full">
 						<LoginHeader />
-						<div className="pl-[6.67vw] pr-6 py-12 sm:pl-[12vw] md:pl-10 md:py-16 lg:pl-12 lg:py-20 2xl:py-24">
-							<div className="mb-8">
-								<h2
-									className={
-										'text-4xl lg:text-[45px] font-medium ' +
-										playfair.className
-									}
-								>
-									{t('login-title')}
-								</h2>
+						<div className="pl-[6.67vw] pr-6 py-12 sm:pl-[12vw] md:pl-10 md:py-16 lg:pl-12 lg:pr-0 2xl:pl-24">
+							<div className="mb-20">
+								<HeadingPage1 />
 							</div>
-							<LoginSection />
-							<p className="text-center mt-6">
-								{t('no-account')}
-								<Link
-									className="ml-1 font-medium underline text-dark hover:text-dark/70 active:text-extra-light"
-									href="/signup"
-								>
-									{t('sign-up')}
-								</Link>
-							</p>
+							<FormPage1 />
 						</div>
 					</div>
 				</div>
@@ -52,11 +35,11 @@ export default async function Login({ params: { locale } }) {
 					<div className="sticky top-0 w-[50vw] h-screen">
 						<div className="h-full w-full relative top-0 left-0">
 							<Image
-								className="h-full w-full object-cover absolute inset-0"
+								className="h-full w-full object-cover absolute p-12 inset-0"
 								height={1500}
 								width={1500}
 								alt="image"
-								src={'/img/sign-up-hero-img.jpg'}
+								src={'/img/step-1.jpg'}
 							/>
 						</div>
 					</div>

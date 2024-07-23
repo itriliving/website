@@ -1,9 +1,14 @@
 'use client';
 import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { setUserLoggedIn } from '@/utils/local-storage';
+import { useRouter } from 'next/navigation';
+import { auth } from '@/firebase/firebase.config';
 
 export default function LoginForm() {
 	const { t } = useTranslation();
+	const router = useRouter();
 
 	return (
 		<div className="space-y-8">
@@ -26,10 +31,35 @@ export default function LoginForm() {
 					return errors;
 				}}
 				onSubmit={(values, { setSubmitting }) => {
-					setTimeout(() => {
-						alert(JSON.stringify(values, null, 2));
-						setSubmitting(false);
-					}, 400);
+					signInWithEmailAndPassword(
+						auth,
+						values.email,
+						values.password
+					)
+						.then((userCredential) => {
+							const user = userCredential.user;
+							setUserLoggedIn(true);
+							getUser(user.uid)
+								.then((userData) => {
+									if (userData.hasCompletedFirstForm) {
+										router.push('/registration/step-2');
+									} else if (userData.isRegistered) {
+										router.push('/profile');
+									} else {
+										router.push('/registration/step-1');
+									}
+								})
+								.catch((error) => {
+									console.error(error);
+								});
+							setSubmitting(false);
+						})
+						.catch((error) => {
+							const errorCode = error.code;
+							const errorMessage = error.message;
+							console.error(errorCode, errorMessage);
+							setSubmitting(false);
+						});
 				}}
 			>
 				{({

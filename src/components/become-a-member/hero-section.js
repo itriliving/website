@@ -39,7 +39,7 @@ export default async function HeroSection({ locale, namespaces }) {
 									target="_self"
 									href="/membership#membershipTiers"
 								>
-									<span>{t('cta-1')}</span>
+									<span>{t('cta-2')}</span>
 								</Link>
 							</div>
 						</div>

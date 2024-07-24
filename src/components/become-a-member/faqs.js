@@ -1,6 +1,7 @@
 import PlusIcon from './plus-icon';
 import { Playfair } from 'next/font/google';
 import initTranslations from '@/utils/i18n';
+import Link from 'next/link';
 
 const playfair = Playfair({ subsets: ['latin'] });
 
@@ -25,13 +26,12 @@ export default async function FAQs({ locale, namespaces }) {
 								<p>{t('faq-subtitle')}</p>
 							</div>
 							<div className="inline-block grid-cols-1 md:grid-cols-2 xl:grid-cols-2 mt-6">
-								<a
+								<Link
 									className="font-semibold inline-flex items-center justify-center rounded-[3.125rem] active:outline-none active:duration-[50ms] focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 cursor-pointer disabled:pointer-events-none disabled:opacity-40 ring-offset-transparent transition-colors duration-[250ms] min-w-[10rem] text-base gap-2 px-6 py-[11px] text-dark border border-dark hover:bg-dark/5 active:bg-dark/10 focus-visible:ring-black md:max-w-sm"
-									target="_blank"
-									href="/membership-schedule-meeting"
+									href="/callback"
 								>
 									<span>{t('faq-cta')}</span>
-								</a>
+								</Link>
 							</div>
 						</div>
 					</div>

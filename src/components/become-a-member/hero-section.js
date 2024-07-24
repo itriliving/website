@@ -29,15 +29,13 @@ export default async function HeroSection({ locale, namespaces }) {
 							<div className="grid gap-4 grid-cols-1 md:grid-cols-1 xl:grid-cols-2 mt-8">
 								<Link
 									className="font-semibold inline-flex items-center justify-center rounded-[3.125rem] active:outline-none active:duration-[50ms] focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 cursor-pointer disabled:pointer-events-none disabled:opacity-40 ring-offset-transparent w-full transition-colors duration-[250ms] min-w-[10rem] text-base gap-2 px-6 py-[11px] text-dark border border-dark hover:bg-dark/5 active:bg-dark/10 focus-visible:ring-black "
-									target="_blank"
-									href="/membership-schedule-meeting"
+									href="/callback"
 								>
 									<span>{t('cta-1')}</span>
 								</Link>
 								<Link
 									className="font-semibold inline-flex items-center justify-center rounded-[3.125rem] active:outline-none active:duration-[50ms] focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 cursor-pointer disabled:pointer-events-none disabled:opacity-40 ring-offset-transparent w-full transition-colors duration-[250ms] min-w-[10rem] text-base gap-2 px-6 py-3 text-off-white bg-dark hover:bg-dark/90 active:bg-dark/80 focus-visible:ring-black "
-									target="_self"
-									href="/membership#membershipTiers"
+									href="/callback"
 								>
 									<span>{t('cta-2')}</span>
 								</Link>

@@ -1,31 +1,15 @@
 'use client';
 import Link from 'next/link';
-import { useContext, useEffect, useState } from 'react';
 import { auth } from '@/firebase/firebase.config';
-import { onAuthStateChanged } from 'firebase/auth';
 import { signOut } from 'firebase/auth';
-import { isUserLoggedIn } from '@/utils/local-storage';
 
-export default function MenuPopup() {
-	const [user, setUser] = useState(auth.currentUser);
-
-	// useEffect(() => {
-	// 	const currentUser = auth.currentUser;
-	// 	setUser(currentUser);
-	// }, []);
-
-	// useEffect(() => {
-	// 	const unsubscribe = onAuthStateChanged(auth, (user) => {
-	// 		setUser(user);
-	// 	});
-
-	// 	return () => unsubscribe();
-	// }, []);
+export default function DesktopMenu() {
+  const user = null;
 
 	async function handleUserSignOut() {
 		try {
 			await signOut(auth);
-			setUser(false);
+      setUser(null);
 			console.log('User signed out');
 		} catch (error) {
 			console.error('Error signing out:', error);
@@ -33,7 +17,7 @@ export default function MenuPopup() {
 	}
 
 	return (
-		<div className="absolute w-56 mt-3 rounded-md drop-shadow-lg bg-off-white ring-1 ring-black ring-opacity-5 focus:outline-none z-40 py-3 right-0 hidden lg:block lg:bottom-[-121px]">
+		<div className="absolute w-56 mt-3 rounded-md drop-shadow-lg bg-off-white ring-1 ring-black ring-opacity-5 focus:outline-none z-40 py-3 right-0 hidden lg:block lg:bottom-[-120px]">
 			{user ? (
 				<div>
 					<div className="flex flex-col px-6 xl:pt-0">

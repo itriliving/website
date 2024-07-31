@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { auth } from '@/firebase/firebase.config';
@@ -9,7 +9,6 @@ import {
 	onAuthStateChanged,
 } from 'firebase/auth';
 import { createUser } from '@/utils/database/firestore-helper-functions';
-import { setUserLoggedIn } from '@/utils/local-storage';
 
 export default function SignupForm() {
 	const router = useRouter();
@@ -102,7 +101,7 @@ export default function SignupForm() {
 								isRegistered: false,
 								hasBookedCall: false,
 							});
-              setUserLoggedIn(true);
+							// setUserState
 							router.push('/registration/step-1');
 							setSubmitting(false);
 						})

@@ -14,8 +14,8 @@ import TranslationsProvider from '@/utils/translations-provider';
 const namespaces = ['HomePage', 'Common'];
 
 export default async function Home({ params: { locale } }) {
-  const { t, resources } = await initTranslations(locale, namespaces);
-  const lang = locale;
+	const { t, resources } = await initTranslations(locale, namespaces);
+	const lang = locale;
 
 	return (
 		<TranslationsProvider

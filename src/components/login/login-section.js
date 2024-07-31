@@ -19,7 +19,6 @@ import {
 	createUser,
 	getUser,
 } from '@/utils/database/firestore-helper-functions';
-import { setUserLoggedIn } from '@/utils/local-storage';
 
 export default function LoginSection() {
 	const router = useRouter();
@@ -32,12 +31,15 @@ export default function LoginSection() {
 			const token = credential.accessToken;
 			const user = result.user;
 			if (user) {
-				setUserLoggedIn(true);
 				const userCreated = await createUserIfNotExists(user.uid, user);
 				if (userCreated) {
-					router.push('/registration/step-1');
+					getUser(user.uid).then((userData) => {
+						// setUserState
+						router.push('/registration/step-1');
+					});
 				} else {
 					getUser(user.uid).then((userData) => {
+						// setUserState
 						if (!userData.hasCompletedFirstForm) {
 							router.push('/registration/step-1');
 						} else if (
@@ -77,12 +79,15 @@ export default function LoginSection() {
 			const token = credential.accessToken;
 			const user = result.user;
 			if (user) {
-				setUserLoggedIn(true);
 				const userCreated = await createUserIfNotExists(user.uid, user);
 				if (userCreated) {
-					router.push('/registration/step-1');
+					getUser(user.uid).then((userData) => {
+						// setUserState
+						router.push('/registration/step-1');
+					});
 				} else {
 					getUser(user.uid).then((userData) => {
+						// setUserState
 						if (!userData.hasCompletedFirstForm) {
 							router.push('/registration/step-1');
 						} else if (
@@ -107,9 +112,6 @@ export default function LoginSection() {
 		} catch (error) {
 			const errorCode = error.code;
 			const errorMessage = error.message;
-
-			// const email = error.customData?.email; // Use optional chaining for email
-			// const credential = GoogleAuthProvider.credentialFromError(error);
 			console.error(errorCode, errorMessage);
 		}
 	};

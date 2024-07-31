@@ -2,9 +2,9 @@
 import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { setUserLoggedIn } from '@/utils/local-storage';
 import { useRouter } from 'next/navigation';
 import { auth } from '@/firebase/firebase.config';
+import getUser from '@/utils/database/firestore-helper-functions';
 
 export default function LoginForm() {
 	const { t } = useTranslation();
@@ -38,9 +38,9 @@ export default function LoginForm() {
 					)
 						.then((userCredential) => {
 							const user = userCredential.user;
-							setUserLoggedIn(true);
 							getUser(user.uid)
 								.then((userData) => {
+									// setUserState
 									if (userData.hasCompletedFirstForm) {
 										router.push('/registration/step-2');
 									} else if (userData.isRegistered) {

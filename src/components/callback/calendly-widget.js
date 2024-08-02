@@ -23,7 +23,7 @@ export default function CalendlyWidget() {
 					) {
 						router.push('/registration/step-2');
 					} else if (userData.hasBookedCall) {
-						router.push('/profile');
+						router.push('/account');
 					}
 				});
 			}

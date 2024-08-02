@@ -16,8 +16,8 @@ export default function SignupForm() {
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
-			if (user && router.pathname !== '/profile') {
-				router.push('/profile');
+			if (user && router.pathname !== '/account') {
+				router.push('/account');
 			}
 		});
 
@@ -101,7 +101,6 @@ export default function SignupForm() {
 								isRegistered: false,
 								hasBookedCall: false,
 							});
-							// setUserState
 							router.push('/registration/step-1');
 							setSubmitting(false);
 						})

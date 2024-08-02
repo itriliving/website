@@ -20,7 +20,7 @@ export default async function Login({ params: { locale } }) {
 			resources={resources}
 			namespaces={namespaces}
 		>
-			<main className="relative md:flex min-h-[100vh]">
+			<main className="relative md:flex min-h-[100vh] bg-off-white text-dark">
 				<div className="w-full md:w-1/2">
 					<div className="max-w-2xl mx-auto min-h-full">
 						<LoginHeader />

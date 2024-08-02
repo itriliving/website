@@ -40,13 +40,15 @@ export default function LoginForm() {
 							const user = userCredential.user;
 							getUser(user.uid)
 								.then((userData) => {
-									// setUserState
-									if (userData.hasCompletedFirstForm) {
-										router.push('/registration/step-2');
-									} else if (userData.isRegistered) {
-										router.push('/profile');
-									} else {
+									if (!userData.hasCompletedFirstForm) {
 										router.push('/registration/step-1');
+									} else if (
+										userData.hasCompletedFirstForm &&
+										!userData.isRegistered
+									) {
+										router.push('/registration/step-2');
+									} else {
+										router.push('/account');
 									}
 								})
 								.catch((error) => {

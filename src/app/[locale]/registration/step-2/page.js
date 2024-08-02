@@ -19,7 +19,7 @@ export default async function StepTwo({ params: { locale } }) {
 			resources={resources}
 			namespaces={namespaces}
 		>
-			<main className="relative md:flex min-h-[100vh]">
+			<main className="relative md:flex min-h-[100vh] bg-off-white text-dark">
 				<div className="hidden md:block w-1/2">
 					<div className="sticky top-0 w-[50vw] h-screen">
 						<div className="h-full w-full relative top-0 left-0">

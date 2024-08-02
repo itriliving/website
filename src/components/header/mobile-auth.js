@@ -1,10 +1,24 @@
 'use client';
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@/firebase/firebase.config';
 import { signOut } from 'firebase/auth';
 
 export default function MobileAuth() {
-  const user = null;
+	const [user, setUser] = useState(null);
+
+	useEffect(() => {
+		const unsubscribe = onAuthStateChanged(auth, (user) => {
+			if (user) {
+				setUser(user);
+			} else {
+				setUser(null);
+			}
+		});
+		return unsubscribe;
+	}, []);
 
 	async function handleUserSignOut() {
 		try {
@@ -22,7 +36,7 @@ export default function MobileAuth() {
 					<li>
 						<Link
 							className="py-3 px-6 inline-flex items-center"
-							href="/profile"
+							href="/account"
 						>
 							<span>Profile</span>
 						</Link>

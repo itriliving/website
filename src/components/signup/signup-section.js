@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
@@ -33,13 +34,9 @@ export default function SignupSection() {
 			if (user) {
 				const userCreated = await createUserIfNotExists(user.uid, user);
 				if (userCreated) {
-					getUser(user.uid).then((userData) => {
-						// setUserState
-						router.push('/registration/step-1');
-					});
+					router.push('/registration/step-1');
 				} else {
 					getUser(user.uid).then((userData) => {
-						// setUserState
 						if (!userData.hasCompletedFirstForm) {
 							router.push('/registration/step-1');
 						} else if (
@@ -47,13 +44,8 @@ export default function SignupSection() {
 							!userData.isRegistered
 						) {
 							router.push('/registration/step-2');
-						} else if (
-							userData.hasCompletedFirstForm &&
-							userData.isRegistered
-						) {
-							router.push('/registration/success');
 						} else {
-							router.push('/profile');
+							router.push('/account');
 						}
 					});
 				}
@@ -78,13 +70,9 @@ export default function SignupSection() {
 			if (user) {
 				const userCreated = await createUserIfNotExists(user.uid, user);
 				if (userCreated) {
-					getUser(user.uid).then((userData) => {
-						// setUserState
-						router.push('/registration/step-1');
-					});
+					router.push('/registration/step-1');
 				} else {
 					getUser(user.uid).then((userData) => {
-						// setUserState
 						if (!userData.hasCompletedFirstForm) {
 							router.push('/registration/step-1');
 						} else if (
@@ -92,13 +80,8 @@ export default function SignupSection() {
 							!userData.isRegistered
 						) {
 							router.push('/registration/step-2');
-						} else if (
-							userData.hasCompletedFirstForm &&
-							userData.isRegistered
-						) {
-							router.push('/registration/success');
 						} else {
-							router.push('/profile');
+							router.push('/account');
 						}
 					});
 				}
@@ -138,8 +121,8 @@ export default function SignupSection() {
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
-			if (user && router.pathname !== '/profile') {
-				router.push('/profile');
+			if (user && router.pathname !== '/account') {
+				router.push('/account');
 			}
 		});
 

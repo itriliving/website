@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function LoginFooter() {
 	return (
@@ -10,8 +10,8 @@ export default function LoginFooter() {
 							className="my-2"
 							src="/img/itri-living-logo-white.png"
 							alt="Logo"
-							width={200}
-							height={200}
+							width={150}
+							height={150}
 						/>
 					</div>
 					<div className="flex items-center gap-4 text-sm text-off-white/90 shrink-0 grow justify-center flex-wrap lg:justify-start">

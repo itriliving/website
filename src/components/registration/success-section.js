@@ -32,7 +32,7 @@ export default function SuccessSection() {
 					) {
 						router.push('/registration/success');
 					} else {
-						router.push('/profile');
+						router.push('/account');
 					}
 				});
 			}

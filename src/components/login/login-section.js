@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import LoginForm from './login-form';
@@ -28,18 +29,14 @@ export default function LoginSection() {
 		try {
 			const result = await signInWithPopup(auth, googleProvider);
 			const credential = GoogleAuthProvider.credentialFromResult(result);
-			const token = credential.accessToken;
+			// const token = credential.accessToken;
 			const user = result.user;
 			if (user) {
 				const userCreated = await createUserIfNotExists(user.uid, user);
 				if (userCreated) {
-					getUser(user.uid).then((userData) => {
-						// setUserState
-						router.push('/registration/step-1');
-					});
+					router.push('/registration/step-1');
 				} else {
 					getUser(user.uid).then((userData) => {
-						// setUserState
 						if (!userData.hasCompletedFirstForm) {
 							router.push('/registration/step-1');
 						} else if (
@@ -47,13 +44,8 @@ export default function LoginSection() {
 							!userData.isRegistered
 						) {
 							router.push('/registration/step-2');
-						} else if (
-							userData.hasCompletedFirstForm &&
-							userData.isRegistered
-						) {
-							router.push('/registration/success');
 						} else {
-							router.push('/profile');
+							router.push('/account');
 						}
 					});
 				}
@@ -64,9 +56,6 @@ export default function LoginSection() {
 		} catch (error) {
 			const errorCode = error.code;
 			const errorMessage = error.message;
-
-			// const email = error.customData?.email; // Use optional chaining for email
-			// const credential = GoogleAuthProvider.credentialFromError(error);
 			console.error(errorCode, errorMessage);
 		}
 	};
@@ -81,13 +70,9 @@ export default function LoginSection() {
 			if (user) {
 				const userCreated = await createUserIfNotExists(user.uid, user);
 				if (userCreated) {
-					getUser(user.uid).then((userData) => {
-						// setUserState
-						router.push('/registration/step-1');
-					});
+					router.push('/registration/step-1');
 				} else {
 					getUser(user.uid).then((userData) => {
-						// setUserState
 						if (!userData.hasCompletedFirstForm) {
 							router.push('/registration/step-1');
 						} else if (
@@ -95,13 +80,8 @@ export default function LoginSection() {
 							!userData.isRegistered
 						) {
 							router.push('/registration/step-2');
-						} else if (
-							userData.hasCompletedFirstForm &&
-							userData.isRegistered
-						) {
-							router.push('/registration/success');
 						} else {
-							router.push('/profile');
+							router.push('/account');
 						}
 					});
 				}
@@ -141,8 +121,8 @@ export default function LoginSection() {
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
-			if (user && router.pathname !== '/profile') {
-				router.push('/profile');
+			if (user && router.pathname !== '/account') {
+				router.push('/account');
 			}
 		});
 

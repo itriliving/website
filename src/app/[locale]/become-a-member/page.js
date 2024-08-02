@@ -9,6 +9,8 @@ import Footer from '@/components/footer';
 import GoToTop from '@/components/common/go-to-top';
 import initTranslations from '@/utils/i18n';
 import TranslationsProvider from '@/utils/translations-provider';
+import Animate from '@/components/common/animate';
+import Stretch from '@/components/common/stretch';
 
 const namespaces = ['BecomeAMember', 'Common'];
 
@@ -25,11 +27,21 @@ export default async function BecomeAMember({ params: { locale } }) {
 			<Header locale={lang} namespaces={namespaces} />
 			<main className="flex min-h-screen flex-col bg-off-white text-dark">
 				<HeroSection locale={lang} namespaces={namespaces} />
-				<Benefits locale={lang} namespaces={namespaces} />
-				<LocationsSection locale={lang} namespaces={namespaces} />
-				<MemberHub locale={lang} namespaces={namespaces} />
-				<Pricing locale={lang} namespaces={namespaces} />
-				<FAQs locale={lang} namespaces={namespaces} />
+				<Animate>
+					<Benefits locale={lang} namespaces={namespaces} />
+				</Animate>
+				<Animate>
+					<LocationsSection locale={lang} namespaces={namespaces} />
+				</Animate>
+				<Animate>
+					<MemberHub locale={lang} namespaces={namespaces} />
+				</Animate>
+				<Animate>
+					<Pricing locale={lang} namespaces={namespaces} />
+				</Animate>
+				<Animate>
+					<FAQs locale={lang} namespaces={namespaces} />
+				</Animate>
 				<GoToTop />
 			</main>
 			<Footer locale={lang} namespaces={namespaces} />

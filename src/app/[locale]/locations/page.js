@@ -5,6 +5,7 @@ import Footer from '@/components/footer';
 import GoToTop from '@/components/common/go-to-top';
 import initTranslations from '@/utils/i18n';
 import TranslationsProvider from '@/utils/translations-provider';
+import Animate from '@/components/common/animate';
 
 const namespaces = ['Locations', 'Common'];
 
@@ -21,7 +22,9 @@ export default async function Locations({ params: { locale } }) {
 			<Header locale={lang} namespaces={namespaces} />
 			<main className="flex min-h-screen flex-col bg-off-white text-dark">
 				<HeroSection locale={lang} namespaces={namespaces} />
-				<LocationsSection locale={lang} namespaces={namespaces} />
+				<Animate>
+					<LocationsSection locale={lang} namespaces={namespaces} />
+				</Animate>
 				<GoToTop />
 			</main>
 			<Footer locale={lang} namespaces={namespaces} />

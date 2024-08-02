@@ -1,13 +1,15 @@
 'use client';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { InlineWidget } from 'react-calendly';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@/firebase/firebase.config';
 import { getUser } from '@/utils/database/firestore-helper-functions';
+import Loading from '../common/loading';
 
 export default function CalendlyWidget() {
 	const router = useRouter();
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -24,6 +26,8 @@ export default function CalendlyWidget() {
 						router.push('/registration/step-2');
 					} else if (userData.hasBookedCall) {
 						router.push('/account');
+					} else {
+						setLoading(false);
 					}
 				});
 			}
@@ -33,11 +37,14 @@ export default function CalendlyWidget() {
 	}, [router]);
 
 	return (
-		<InlineWidget
-			styles={{
-				height: '1000px',
-			}}
-			url="https://calendly.com/d/ckjx-6zh-x93"
-		/>
+		<>
+			{loading && <Loading />}
+			<InlineWidget
+				styles={{
+					height: '1000px',
+				}}
+				url="https://calendly.com/d/ckjx-6zh-x93"
+			/>
+		</>
 	);
 }

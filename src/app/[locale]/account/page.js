@@ -27,7 +27,7 @@ export default async function Account({ params: { locale } }) {
 			title: 'Call Back',
 			description: 'Learn more about Itri membership.',
 			linkTitle: 'Book a Call Back',
-			link: '/account/profile',
+			link: '/callback',
 			svgLink: '/svg/account/callback.svg',
 		},
 		{
@@ -57,29 +57,32 @@ export default async function Account({ params: { locale } }) {
 			namespaces={namespaces}
 		>
 			<Header locale={lang} namespaces={namespaces} />
-			<main className="px-6 lg:px-0 max-w-[928px] mx-auto min-h-[calc(100vh-8.5rem)]">
-				<div className="py-16">
-					<h1
-						className={
-							'text-4xl font-medium mb-8 ' + playfair.className
-						}
-					>
-						Account
-					</h1>
-					<div className="grid lg:grid-cols-2 gap-6">
-						{accountSection.map((section) => (
-							<AccountSection
-								key={section.index}
-								title={section.title}
-								description={section.description}
-								linkTitle={section.linkTitle}
-								link={section.link}
-								svgLink={section.svgLink}
-							/>
-						))}
+			<div className="bg-off-white">
+				<main className="px-6 lg:px-0 max-w-[928px] mx-auto min-h-[calc(100vh-8.5rem)]">
+					<div className="py-16">
+						<h1
+							className={
+								'text-4xl font-medium mb-8 ' +
+								playfair.className
+							}
+						>
+							Account
+						</h1>
+						<div className="grid lg:grid-cols-2 gap-6">
+							{accountSection.map((section) => (
+								<AccountSection
+									key={section.index}
+									title={section.title}
+									description={section.description}
+									linkTitle={section.linkTitle}
+									link={section.link}
+									svgLink={section.svgLink}
+								/>
+							))}
+						</div>
 					</div>
-				</div>
-			</main>
+				</main>
+			</div>
 			<LoginFooter locale={lang} namespaces={namespaces} />
 		</TranslationsProvider>
 	);

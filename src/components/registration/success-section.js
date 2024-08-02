@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -7,11 +7,13 @@ import Image from 'next/image';
 import { Bebas_Neue } from 'next/font/google';
 import { getUser } from '@/utils/database/firestore-helper-functions';
 import { auth } from '@/firebase/firebase.config';
+import Loading from '../common/loading';
 
 const bebasNeue = Bebas_Neue({ subsets: ['latin'], weight: '400' });
 
 export default function SuccessSection() {
 	const router = useRouter();
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -30,7 +32,7 @@ export default function SuccessSection() {
 						userData.hasCompletedFirstForm &&
 						userData.isRegistered
 					) {
-						router.push('/registration/success');
+						setLoading(false);
 					} else {
 						router.push('/account');
 					}
@@ -43,6 +45,7 @@ export default function SuccessSection() {
 
 	return (
 		<section className="relative grow border-dark py-0 bg-medium border-bottom">
+			{loading && <Loading />}
 			<div className="grow h-full grid grid-cols-1 md:grid-cols-2 items-center">
 				<div className="w-[86.66vw] mt-12 md:my-14 lg:my-16 xl:my-20 2xl:my-24 sm:w-[76vw] md:w-full mx-auto aspect-square relative order-1  md:max-w-none xl:aspect-video">
 					<Image

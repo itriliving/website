@@ -10,12 +10,13 @@ import Footer from '@/components/footer';
 import GoToTop from '@/components/common/go-to-top';
 import initTranslations from '@/utils/i18n';
 import TranslationsProvider from '@/utils/translations-provider';
+import Animate from '@/components/common/animate';
 
 const namespaces = ['TheClub', 'Common'];
 
 export default async function TheClub({ params: { locale } }) {
 	const { t, resources } = await initTranslations(locale, namespaces);
-  const lang = locale;
+	const lang = locale;
 
 	return (
 		<TranslationsProvider
@@ -26,12 +27,28 @@ export default async function TheClub({ params: { locale } }) {
 			<Header locale={lang} namespaces={namespaces} />
 			<main className="flex flex-col justify-between min-h-screen bg-off-white text-dark">
 				<HeroSection locale={lang} namespaces={namespaces} />
-				<ExtraSection locale={lang} namespaces={namespaces} />
-				<SpaceSection locale={lang} namespaces={namespaces} />
-				<KasbahsSection locale={lang} namespaces={namespaces} />
-				<EcoSection locale={lang} namespaces={namespaces} />
-				<BenefitsSection locale={lang} namespaces={namespaces} />
-				<CryptoSection locale={lang} namespaces={namespaces} />
+
+				<Animate>
+					<ExtraSection locale={lang} namespaces={namespaces} />
+				</Animate>
+				<Animate>
+					<SpaceSection locale={lang} namespaces={namespaces} />
+				</Animate>
+
+				<Animate>
+					<KasbahsSection locale={lang} namespaces={namespaces} />
+				</Animate>
+
+				<Animate>
+					<EcoSection locale={lang} namespaces={namespaces} />
+				</Animate>
+
+				<Animate>
+					<BenefitsSection locale={lang} namespaces={namespaces} />
+				</Animate>
+
+					<CryptoSection locale={lang} namespaces={namespaces} />
+
 				<GoToTop />
 			</main>
 			<Footer locale={lang} namespaces={namespaces} />

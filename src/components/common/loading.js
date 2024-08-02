@@ -4,10 +4,10 @@ export default function Loading() {
 	return (
 		<div className="fixed top-0 right-0 w-full h-full flex items-center justify-center bg-medium z-50">
 			<div className='flex flex-col items-center'>
-				<div className="mb-4 w-44 h-auto">
+				<div className="mb-4 w-56 h-auto">
 					<Image
 						src="/img/itri-logo-big.png"
-						alt="Loading"
+						alt="Itri Living Logo"
 						width={200}
 						height={200}
 					/>

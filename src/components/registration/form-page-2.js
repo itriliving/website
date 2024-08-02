@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useRouter } from 'next/navigation';
@@ -9,6 +9,7 @@ import {
 	updateUser,
 } from '@/utils/database/firestore-helper-functions';
 import { onAuthStateChanged } from 'firebase/auth';
+import Loading from '../common/loading';
 
 const initialValues = {
 	mainMotivation: '',
@@ -24,20 +25,26 @@ const validationSchema = Yup.object({
 
 export default function FormPage2() {
 	const router = useRouter();
+	const [loading, setLoading] = useState(true);
 
-	onAuthStateChanged(auth, (user) => {
-		if (!user) {
-			router.push('/login');
-		} else {
-			getUser(auth.currentUser.uid).then((user) => {
-				if (!user.hasCompletedFirstForm) {
-					router.push('/registration/step-1');
-				} else if (user.isRegistered) {
-					router.push('/registration/success');
-				}
-			});
-		}
-	});
+	useEffect(() => {
+		const unsubscribe = onAuthStateChanged(auth, (user) => {
+			if (!user) {
+				router.push('/login');
+			} else {
+				getUser(auth.currentUser.uid).then((user) => {
+					if (!user.hasCompletedFirstForm) {
+						router.push('/registration/step-1');
+					} else if (user.isRegistered) {
+						router.push('/registration/success');
+					} else {
+						setLoading(false);
+					}
+				});
+			}
+		});
+		return () => unsubscribe();
+	}, [router]);
 
 	return (
 		<Formik
@@ -56,6 +63,7 @@ export default function FormPage2() {
 		>
 			{({ isSubmitting, handleSubmit }) => (
 				<Form onSubmit={handleSubmit}>
+					{loading && <Loading />}
 					<div className="mb-12">
 						<h3 className="mb-3 text-lg lg:text-xl">
 							Main Motivation for Joining Itri Living

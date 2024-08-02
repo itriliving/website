@@ -1,11 +1,15 @@
 'use client';
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useRouter } from 'next/navigation';
 import { auth } from '@/firebase/firebase.config';
-import { updateUser, getUser } from '@/utils/database/firestore-helper-functions';
+import {
+	updateUser,
+	getUser,
+} from '@/utils/database/firestore-helper-functions';
 import { onAuthStateChanged } from 'firebase/auth';
+import Loading from '../common/loading';
 
 const initialValues = {
 	ageRange: '',
@@ -27,18 +31,24 @@ const validationSchema = Yup.object({
 
 export default function FormPage1() {
 	const router = useRouter();
+	const [loading, setLoading] = useState(true);
 
-	onAuthStateChanged(auth, (user) => {
-		if (!user) {
-			router.push('/login');
-		} else {
-			getUser(auth.currentUser.uid).then((user) => {
-				if (user.hasCompletedFirstForm) {
-					router.push('/registration/step-2');
-				}
-			});
-		}
-	});
+	useEffect(() => {
+		const unsubscribe = onAuthStateChanged(auth, (user) => {
+			if (!user) {
+				router.push('/login');
+			} else {
+				getUser(auth.currentUser.uid).then((user) => {
+					if (user.hasCompletedFirstForm) {
+						router.push('/registration/step-2');
+					} else {
+            setLoading(false);
+          }
+				});
+			}
+		});
+		return () => unsubscribe();
+	}, [router]);
 
 	return (
 		<Formik
@@ -60,6 +70,7 @@ export default function FormPage1() {
 		>
 			{({ isSubmitting, handleSubmit, values }) => (
 				<Form onSubmit={handleSubmit}>
+          {loading && <Loading />}
 					<div className="mb-12">
 						<h3 className="mb-3 text-lg lg:text-xl">Age range</h3>
 						<div className="flex flex-wrap gap-x-10 gap-y-4 mb-2">

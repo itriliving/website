@@ -5,9 +5,11 @@ import Link from 'next/link';
 import { auth } from '@/firebase/firebase.config';
 import { signOut } from 'firebase/auth';
 import { onAuthStateChanged } from 'firebase/auth';
+import { useRouter } from 'next/navigation';
 
 export default function DesktopMenu() {
 	const [user, setUser] = useState(null);
+	const router = useRouter();
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -26,6 +28,7 @@ export default function DesktopMenu() {
 		} catch (error) {
 			console.error('Error signing out:', error);
 		}
+		router.refresh();
 	}
 
 	return (

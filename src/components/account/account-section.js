@@ -32,7 +32,7 @@ export default function AccountSection({
 	return (
 		<>
 			<Link
-				className="border border-light rounded p-6 cursor-pointer hover:bg-dark/[.03] focus:border-dark active:border-dark"
+				className="border border-dark/15 rounded p-6 cursor-pointer hover:bg-dark/[.03] focus:border-dark active:border-dark"
 				href={link}
 			>
 				<Image

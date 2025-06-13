@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villa Bahia - Where the Ocean Meets Wellness</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #8B4513;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8B4513;
+        }
+
+        .language-toggle {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .lang-btn {
+            padding: 0.3rem 0.6rem;
+            border: 1px solid #8B4513;
+            background: transparent;
+            color: #8B4513;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active,
+        .lang-btn:hover {
+            background: #8B4513;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23E6F3FF" width="1200" height="800"/><path fill="%23B8860B" d="M0 400h1200v400H0z"/><circle fill="%23FFD700" cx="1000" cy="150" r="80"/><path fill="%23228B22" d="M0 600h1200v200H0z"/></svg>') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero-content .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #8B4513;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            margin: 0.5rem;
+        }
+
+        .cta-btn:hover {
+            background: #A0522D;
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            border: 2px solid white;
+        }
+
+        .cta-btn.secondary:hover {
+            background: white;
+            color: #333;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #8B4513;
+            margin-bottom: 3rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 4rem;
+            font-style: italic;
+        }
+
+        /* Accommodation */
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .room-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .room-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .room-image {
+            height: 250px;
+            background: linear-gradient(45deg, #E6F3FF, #B8860B);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .room-content {
+            padding: 1.5rem;
+        }
+
+        .room-content h3 {
+            color: #8B4513;
+            margin-bottom: 1rem;
+        }
+
+        /* Wellness */
+        .wellness-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            background: #F8F8F8;
+            border-radius: 10px;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: #8B4513;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* Packages */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .package-card {
+            background: white;
+            border: 2px solid #8B4513;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .package-card:hover {
+            background: #8B4513;
+            color: white;
+        }
+
+        .package-card h3 {
+            color: #8B4513;
+            margin-bottom: 1rem;
+        }
+
+        .package-card:hover h3 {
+            color: white;
+        }
+
+        .package-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        /* World Cup Section */
+        .world-cup {
+            background: linear-gradient(rgba(139, 69, 19, 0.9), rgba(139, 69, 19, 0.9)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23228B22" width="1200" height="600"/><circle fill="%23fff" cx="600" cy="300" r="100" stroke="%23000" stroke-width="3"/></svg>') center/cover;
+            color: white;
+            text-align: center;
+        }
+
+        /* Contact */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #8B4513;
+            margin-bottom: 1rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .tagline {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .rooms-grid,
+            .wellness-features,
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Moroccan Patterns */
+        .moroccan-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, #8B4513 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, #8B4513 2px, transparent 2px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Villa Bahia</a>
+            <ul class="nav-links">
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#accommodation">Accommodation</a></li>
+                <li><a href="#wellness">Wellness</a></li>
+                <li><a href="#culinary">Culinary</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="language-toggle">
+                <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+                <button class="lang-btn" onclick="setLanguage('fr')">FR</button>
+                <button class="lang-btn" onclick="setLanguage('ar')">العربية</button>
+            </div>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1>Villa Bahia</h1>
+            <p class="tagline">Where the Ocean Meets Wellness</p>
+            <p>An intimate sanctuary where Moroccan elegance meets contemporary luxury. Discover the perfect harmony of beachfront serenity, championship golf, and holistic wellness in Morocco's most exclusive gated resort.</p>
+            <a href="#contact" class="cta-btn">Reserve Your Sanctuary</a>
+            <a href="#experience" class="cta-btn secondary">Design Your Experience</a>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="moroccan-pattern">
+        <div class="container">
+            <h2 class="section-title">Signature Experiences</h2>
+            <p class="section-subtitle">Curated journeys for the discerning traveler</p>
+            
+            <div class="packages-grid">
+                <div class="package-card">
+                    <h3>Yoga + Stay Package</h3>
+                    <p>2 nights with daily yoga classes and spa treatments</p>
+                    <div class="package-price">From €899</div>
+                    <p>Rejuvenate your mind and body with our comprehensive wellness experience</p>
+                </div>
+                
+                <div class="package-card">
+                    <h3>Golf + Gourmet Weekend</h3>
+                    <p>3-5 nights with course access and culinary workshops</p>
+                    <div class="package-price">From €1,499</div>
+                    <p>Perfect your swing while mastering Moroccan culinary traditions</p>
+                </div>
+                
+                <div class="package-card">
+                    <h3>Wellness + Stay Package</h3>
+                    <p>Comprehensive mind-body wellness immersion</p>
+                    <div class="package-price">From €1,299</div>
+                    <p>Complete wellness journey with hammam, spa, and meditation</p>
+                </div>
+                
+                <div class="package-card">
+                    <h3>World Cup 2030 VIP Experience</h3>
+                    <p>Exclusive access during FIFA events</p>
+                    <div class="package-price">From €2,999</div>
+                    <p>Premium hospitality for the world's greatest sporting event</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accommodation Section -->
+    <section id="accommodation">
+        <div class="container">
+            <h2 class="section-title">Accommodation Excellence</h2>
+            <p class="section-subtitle">Four exclusive sanctuaries plus one distinguished VIP suite</p>
+            
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-image">Deluxe Ocean View Room</div>
+                    <div class="room-content">
+                        <h3>Deluxe Sanctuaries</h3>
+                        <p>Four elegantly appointed rooms featuring ocean-golf panoramas, private terraces, and traditional Moroccan design elements blended with contemporary luxury.</p>
+                        <ul>
+                            <li>Ocean and golf course views</li>
+                            <li>Private terrace</li>
+                            <li>Moroccan-inspired décor</li>
+                            <li>Premium amenities</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="room-card">
+                    <div class="room-image">VIP Suite Experience</div>
+                    <div class="room-content">
+                        <h3>Distinguished VIP Suite</h3>
+                        <p>Our crown jewel accommodation offering unparalleled luxury, expansive living spaces, and exclusive amenities for the most discerning guests.</p>
+                        <ul>
+                            <li>Expansive living area</li>
+                            <li>Premium ocean views</li>
+                            <li>Butler service</li>
+                            <li>Exclusive amenities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wellness Section -->
+    <section id="wellness" style="background: #F8F8F8;">
+        <div class="container">
+            <h2 class="section-title">Wellness & Spa Sanctuary</h2>
+            <p class="section-subtitle">Wellness is our essence</p>
+            
+            <div class="wellness-features">
+                <div class="feature-card">
+                    <div class="feature-icon">🛁</div>
+                    <h3>Traditional Hammam</h3>
+                    <p>Authentic Moroccan wellness rituals in our beautifully appointed traditional hammam</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🏊</div>
+                    <h3>Dual Pool Experience</h3>
+                    <p>35-meter outdoor pool facing golf course plus 17-meter indoor pool with hydromassage</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🧘</div>
+                    <h3>Rooftop Wellness</h3>
+                    <p>Jacuzzi terrace with ocean panoramas for ultimate relaxation and rejuvenation</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💆</div>
+                    <h3>Thermal Wellness</h3>
+                    <p>Steam room and sauna for complete thermal wellness and detoxification</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🤸</div>
+                    <h3>Fitness Integration</h3>
+                    <p>Aerial yoga equipment, dance bars, and dedicated gym space for holistic fitness</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌿</div>
+                    <h3>Wellness Retreats</h3>
+                    <p>3-day intensive yoga and wellness programs led by expert practitioners</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culinary Section -->
+    <section id="culinary">
+        <div class="container">
+            <h2 class="section-title">Culinary Excellence Hub</h2>
+            <p class="section-subtitle">Gastronomic journeys celebrating Moroccan heritage and international sophistication</p>
+            
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-image">Culinary Workshop</div>
+                    <div class="room-content">
+                        <h3>Interactive Culinary Workshops</h3>
+                        <p>Hands-on cooking lessons featuring traditional Moroccan techniques and local ingredients, guided by master chefs.</p>
+                    </div>
+                </div>
+                
+                <div class="room-card">
+                    <div class="room-image">Rooftop Dining</div>
+                    <div class="room-content">
+                        <h3>Intimate Dining Experiences</h3>
+                        <p>Private dining on our rooftop terrace with ocean views, featuring curated wine selections and gourmet cuisine.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" style="background: #F8F8F8;">
+        <div class="container">
+            <h2 class="section-title">Golf & Ocean Adventures</h2>
+            <p class="section-subtitle">Exclusive access to world-class experiences</p>
+            
+            <div class="wellness-features">
+                <div class="feature-card">
+                    <div class="feature-icon">⛳</div>
+                    <h3>Golf Discovery</h3>
+                    <p>3-5 day packages across different 18-hole championship courses with professional instruction</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚤</div>
+                    <h3>Ocean Adventures</h3>
+                    <p>High-end jet ski and RIB boat experiences with professional water sports instruction</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎣</div>
+                    <h3>Fishing Expeditions</h3>
+                    <p>Professional guided fishing adventures in Morocco's pristine Atlantic waters</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚗</div>
+                    <h3>4x4 Exploration</h3>
+                    <p>Authentic Moroccan countryside adventures with professional drivers and cultural guides</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎬</div>
+                    <h3>Private Cinema</h3>
+                    <p>Intimate 8-person capacity home theater for exclusive entertainment experiences</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🏖️</div>
+                    <h3>Beach Access</h3>
+                    <p>Exclusive access to pristine beaches within the gated Bahia Golf Beach Resort</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- World Cup 2030 Section -->
+    <section class="world-cup">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">FIFA World Cup 2030 Opportunity</h2>
+            <p class="section-subtitle" style="color: #FFD700;">Witness history in the making from Morocco's most exclusive location</p>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Villa Bahia offers unparalleled proximity to Hassan II Stadium and exclusive VIP experiences during FIFA World Cup 2030. Be part of football history while enjoying luxury accommodations and personalized service.</p>
+            <a href="#contact" class="cta-btn" style="background: #FFD700; color: #333;">Secure Your 2030 Experience</a>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events">
+        <div class="container">
+            <h2 class="section-title">Exclusive Events</h2>
+            <p class="section-subtitle">Intimate celebrations in paradise</p>
+            
+            <div class="packages-grid">
+                <div class="package-card">
+                    <h3>Wedding Celebrations</h3>
+                    <p>Intimate luxury ceremonies with ocean backdrops and personalized service</p>
+                </div>
+                
+                <div class="package-card">
+                    <h3>Corporate Retreats</h3>
+                    <p>High-level business gatherings in an inspiring, private environment</p>
+                </div>
+                
+                <div class="package-card">
+                    <h3>Anniversary Celebrations</h3>
+                    <p>Romantic milestones celebrated with Moroccan elegance and modern luxury</p>
+                </div>
+                
+                <div class="package-card">
+                    <h3>Honeymoon Sanctuaries</h3>
+                    <p>Romantic escape packages designed for newlyweds seeking privacy and luxury</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: #F8F8F8;">
+        <div class="container">
+            <h2 class="section-title">Reserve Your Sanctuary</h2>
+            <p class="section-subtitle">Limited availability - advance reservations essential</p>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="dates">Preferred Dates</label>
+                    <input type="text" id="dates" name="dates" placeholder="Please specify your preferred dates">
+                </div>
+                
+                <div class="form-group">
+                    <label for="experience">Experience Interest</label>
+                    <select id="experience" name="experience">
+                        <option value="">Select an experience package</option>
+                        <option value="yoga-stay">Yoga + Stay Package</option>
+                        <option value="golf-gourmet">Golf + Gourmet Weekend</option>
+                        <option value="wellness-stay">Wellness + Stay Package</option>
+                        <option value="world-cup">World Cup 2030 VIP Experience</option>
+                        <option value="wedding">Wedding Celebration</option>
+                        <option value="corporate">Corporate Retreat</option>
+                        <option value="custom">Custom Experience</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="guests">Number of Guests</label>
+                    <select id="guests" name="guests">
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3-4">3-4 Guests</option>
+                        <option value="5-6">5-6 Guests</option>
+                        <option value="7-8">7-8 Guests</option>
+                        <option value="9-10">9-10 Guests</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Special Requests</label>
+                    <textarea id="message" name="message" placeholder="Please share any special requests or requirements for your stay"></textarea>
+                </div>
+                
+                <button type="submit" class="cta-btn" style="width: 100%; margin-top: 1rem;">Submit Reservation Request</button>
+            </form>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <h3>Direct Contact</h3>
+                <p>Email: reservations@villabahia.ma</p>
+                <p>Phone: +212 537 XXX XXX</p>
+                <p>WhatsApp: +212 6XX XXX XXX</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Villa Bahia</h3>
+                    <p>Where the Ocean Meets Wellness</p>
+                    <p>Bahia Golf Beach Resort<br>
+                    Bouznika, Morocco</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#experience" style="color: white; text-decoration: none;">Experiences</a></p>
+                    <p><a href="#accommodation" style="color: white; text-decoration: none;">Accommodation</a></p>
+                    <p><a href="#wellness" style="color: white; text-decoration: none;">Wellness</a></p>
+                    <p><a href="#contact" style="color: white; text-decoration: none;">Reservations</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Unique Advantages</h3>
+                    <p>• Equidistant from Casablanca & Rabat</p>
+                    <p>• Gated luxury resort community</p>
+                    <p>• World Cup 2030 proximity</p>
+                    <p>• Exclusive beachfront & golf access</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <p>Instagram: @villabahia</p>
+                    <p>Facebook: Villa Bahia Morocco</p>
+                    <p>LinkedIn: Villa Bahia Luxury</p>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid #555; padding-top: 2rem; margin-top: 2rem;">
+                <p>&copy; 2025 Villa Bahia. All rights reserved. | Morocco's Premier Boutique Guesthouse Destination</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language switching functionality
+        function setLanguage(lang) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Here you would implement actual language switching
+            console.log('Language switched to:', lang);
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handling
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest in Villa Bahia. We will contact you within 24 hours to discuss your reservation.');
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for animations
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Mobile menu toggle (placeholder)
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            alert('Mobile menu functionality would be implemented here');
+        });
+    </script>
+</body>
+</html>

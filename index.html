@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Villa Bahia by ITRI LIVING - Where Ocean Meets Serenity. Exclusive luxury guesthouse in Bouznika, Morocco. Golf-front elegance with ocean-facing serenity.">
+    <meta name="keywords" content="luxury guesthouse Morocco, Bouznika resort, golf resort Morocco, wellness retreat Morocco, World Cup 2030 accommodation">
+    <title>Villa Bahia by ITRI LIVING - Luxury Guesthouse Morocco</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' text-anchor='middle' font-size='60' fill='%23f59e0b'>VB</text></svg>">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --ocean-blue: #0284c7;
+            --gold: #f59e0b;
+            --warm-sand: #fef3c7;
+            --white: #ffffff;
+            --dark-gray: #1f2937;
+            --light-gray: #f3f4f6;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--primary-blue);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            color: var(--white);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--ocean-blue);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .book-now-btn {
+            background: linear-gradient(135deg, var(--ocean-blue), var(--primary-blue));
+            color: var(--white);
+            padding: 0.75rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
+        }
+
+        .book-now-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark-gray);
+            margin: 3px 0;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(30, 58, 138, 0.7), rgba(2, 132, 199, 0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%230284c7" width="1200" height="800"/><path fill="%231e3a8a" d="M0 400L50 375C100 350 200 300 300 275C400 250 500 250 600 275C700 300 800 350 900 375C1000 400 1100 400 1150 400L1200 400L1200 800L1150 800C1100 800 1000 800 900 800C800 800 700 800 600 800C500 800 400 800 300 800C200 800 100 800 50 800L0 800Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Quick Booking Widget */
+        .booking-widget {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            align-items: end;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            color: var(--dark-gray);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--ocean-blue);
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            color: var(--ocean-blue);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* Experience Cards */
+        .experience-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .experience-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .experience-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--ocean-blue));
+            color: var(--white);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            transform: rotate(45deg);
+        }
+
+        .experience-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .experience-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .experience-content {
+            padding: 2rem;
+        }
+
+        .experience-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .experience-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .experience-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--ocean-blue);
+            font-weight: bold;
+        }
+
+        /* Facilities Grid */
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .facility-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+
+        .facility-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .facility-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--ocean-blue), var(--primary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--white);
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 300px;
+            background: var(--light-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item::before {
+            content: '🖼️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        /* Location Section */
+        .location-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .location-map {
+            height: 400px;
+            background: var(--light-gray);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--ocean-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-details {
+            padding: 2rem;
+        }
+
+        .distance-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .distance-list li {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: var(--light-gray);
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .distance-list .icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-info {
+            padding: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--light-gray);
+            border-radius: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--ocean-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, var(--ocean-blue), var(--primary-blue));
+            padding: 60px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .newsletter h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 1rem 2rem;
+            background: var(--gold);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .trust-badge-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-stats {
+                gap: 1rem;
+            }
+
+            .stat-item {
+                min-width: 120px;
+            }
+
+            .location-info,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-cards,
+            .facilities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+            }
+        }
+
+        /* Loading Placeholder */
+        .skeleton {
+            animation: skeleton-loading 1s linear infinite alternate;
+        }
+
+        @keyframes skeleton-loading {
+            0% {
+                background-color: hsl(200, 20%, 80%);
+            }
+            100% {
+                background-color: hsl(200, 20%, 95%);
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-3 {
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--ocean-blue), var(--primary-blue));
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--gold);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--ocean-blue);
+            color: var(--ocean-blue);
+        }
+
+        .btn-outline:hover {
+            background: var(--ocean-blue);
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#home" class="logo">
+                    <div class="logo-icon">VB</div>
+                    Villa Bahia
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#accommodation" class="nav-link">Accommodation</a></li>
+                    <li><a href="#experiences" class="nav-link">Experiences</a></li>
+                    <li><a href="#facilities" class="nav-link">Facilities</a></li>
+                    <li><a href="#location" class="nav-link">Location</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#blog" class="nav-link">Blog</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#booking" class="book-now-btn">Book Now</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Where Ocean Meets Serenity</h1>
+                <p class="hero-subtitle">An exclusive sanctuary where championship golf meets Atlantic elegance, just 38km from the 2030 World Cup stadium.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Luxury Suites</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">38km</span>
+                        <span class="stat-label">World Cup Stadium</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">52m</span>
+                        <span class="stat-label">Total Pool Length</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">9.2/10</span>
+                        <span class="stat-label">Guest Rating</span>
+                    </div>
+                </div>
+
+                <!-- Quick Booking Widget -->
+                <div class="booking-widget">
+                    <form class="booking-form">
+                        <div class="form-group">
+                            <label>Check-in</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Check-out</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Guests</label>
+                            <select>
+                                <option>1 Guest</option>
+                                <option>2 Guests</option>
+                                <option>3 Guests</option>
+                                <option>4 Guests</option>
+                                <option>5+ Guests</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn" style="width: 100%;">Check Availability</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences Section -->
+    <section class="section" id="experiences">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Curated Experiences</p>
+                <h2>Transform Your Stay Into An Unforgettable Journey</h2>
+                <p>Discover our signature packages designed to rejuvenate body, mind, and soul</p>
+            </div>
+
+            <div class="experience-cards">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-icon">🧘</div>
+                        <h3 class="experience-title">Yoga & Sound-Healing Retreat</h3>
+                        <div class="experience-price">$2,500</div>
+                    </div>
+                    <div class="experience-content">
+                        <p><strong>Duration:</strong> 2 Nights / 3 Days</p>
+                        <ul class="experience-features">
+                            <li>Daily sunrise & sunset yoga sessions</li>
+                            <li>Sound healing therapy sessions</li>
+                            <li>Traditional hammam & spa treatments</li>
+                            <li>Organic vegan culinary experience</li>
+                            <li>Meditation & mindfulness workshops</li>
+                        </ul>
+                        <a href="#booking" class="btn" style="width: 100%;">Book This Experience</a>
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-icon">⛳</div>
+                        <h3 class="experience-title">Golf Discovery & Gourmet</h3>
+                        <div class="experience-price">$4,650</div>
+                    </div>
+                    <div class="experience-content">
+                        <p><strong>Duration:</strong> 4 Nights / 5 Days</p>
+                        <ul class="experience-features">
+                            <li>3 different championship golf courses</li>
+                            <li>Professional golf instruction</li>
+                            <li>Gourmet dining experiences</li>
+                            <li>Luxury transportation included</li>
+                            <li>Spa recovery sessions</li>
+                        </ul>
+                        <a href="#booking" class="btn" style="width: 100%;">Book This Experience</a>
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-icon">💆</div>
+                        <h3 class="experience-title">Urban Wellness Escape</h3>
+                        <div class="experience-price">$999</div>
+                    </div>
+                    <div class="experience-content">
+                        <p><strong>Duration:</strong> 2 Nights / 3 Days</p>
+                        <ul class="experience-features">
+                            <li>Hammam & detox treatments</li>
+                            <li>Aqua-gym & pool sessions</li>
+                            <li>Ocean-view yoga classes</li>
+                            <li>Healthy gourmet meals</li>
+                            <li>Beach meditation sessions</li>
+                        </ul>
+                        <a href="#booking" class="btn" style="width: 100%;">Book This Experience</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accommodation Section -->
+    <section class="section" id="accommodation">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Luxury Accommodation</p>
+                <h2>Five Exquisite Suites Await</h2>
+                <p>Each suite offers a unique blend of Moroccan elegance and modern comfort</p>
+            </div>
+
+            <div class="experience-cards">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-icon">👑</div>
+                        <h3 class="experience-title">VIP Ocean Suite</h3>
+                        <div class="experience-price">From $650/night</div>
+                    </div>
+                    <div class="experience-content">
+                        <ul class="experience-features">
+                            <li>Panoramic ocean views</li>
+                            <li>Private terrace with jacuzzi</li>
+                            <li>King-size bed with luxury linens</li>
+                            <li>Marble bathroom with soaking tub</li>
+                            <li>Personal concierge service</li>
+                        </ul>
+                        <a href="#booking" class="btn" style="width: 100%;">Check Availability</a>
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-icon">🏌️</div>
+                        <h3 class="experience-title">Golf View Deluxe</h3>
+                        <div class="experience-price">From $450/night</div>
+                    </div>
+                    <div class="experience-content">
+                        <ul class="experience-features">
+                            <li>Championship golf course views</li>
+                            <li>Spacious bedroom with sitting area</li>
+                            <li>Rain shower and luxury amenities</li>
+                            <li>Private balcony</li>
+                            <li>Complimentary spa access</li>
+                        </ul>
+                        <a href="#booking" class="btn" style="width: 100%;">Check Availability</a>
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-icon">🌊</div>
+                        <h3 class="experience-title">Seaside Comfort</h3>
+                        <div class="experience-price">From $350/night</div>
+                    </div>
+                    <div class="experience-content">
+                        <ul class="experience-features">
+                            <li>Partial ocean views</li>
+                            <li>Queen-size bed</li>
+                            <li>Modern bathroom</li>
+                            <li>Work desk with high-speed WiFi</li>
+                            <li>Access to all facilities</li>
+                        </ul>
+                        <a href="#booking" class="btn" style="width: 100%;">Check Availability</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section class="section" id="facilities">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">World-Class Amenities</p>
+                <h2>Exceptional Facilities for Ultimate Relaxation</h2>
+                <p>Indulge in our comprehensive wellness and recreation offerings</p>
+            </div>
+
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <div class="facility-icon">🏊</div>
+                    <h3>Aquatic Paradise</h3>
+                    <p>35m outdoor pool facing the golf course, 17m indoor pool with hydromassage, and rooftop jacuzzi with ocean views</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">🧖</div>
+                    <h3>Wellness Sanctuary</h3>
+                    <p>Traditional Moroccan hammam, steam room, sauna, and professional spa treatment rooms</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">🏋️</div>
+                    <h3>Fitness & Yoga</h3>
+                    <p>Fully equipped gym, aerial yoga studio with professional equipment, and ocean-view meditation deck</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">🎬</div>
+                    <h3>Entertainment</h3>
+                    <p>Private cinema for 8 guests, game room, and rooftop terrace for events and dining</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">🚤</div>
+                    <h3>Water Sports</h3>
+                    <p>High-end jet ski, RIB boat for ocean adventures, and professional water sports instruction</p>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-icon">🍳</div>
+                    <h3>Culinary Excellence</h3>
+                    <p>Professional kitchen for cooking workshops, rooftop BBQ area, and private chef services</p>
+                </div>
+            </div>
+
+            <!-- Gallery Placeholder -->
+            <h3 class="text-center mb-3" style="margin-top: 4rem;">Explore Our Spaces</h3>
+            <div class="gallery">
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="section" id="location">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Prime Location</p>
+                <h2>Perfectly Positioned for Every Adventure</h2>
+                <p>Equal distance to Casablanca and Rabat, minutes from pristine beaches</p>
+            </div>
+
+            <div class="location-info">
+                <div class="location-map">
+                    📍
+                    <p style="position: absolute; bottom: 20px; font-size: 1rem;">Interactive Map</p>
+                </div>
+                <div class="location-details">
+                    <h3>Strategic Location Benefits</h3>
+                    <ul class="distance-list">
+                        <li>
+                            <span><span class="icon">⚽</span> Hassan II Stadium (World Cup 2030)</span>
+                            <strong>38km</strong>
+                        </li>
+                        <li>
+                            <span><span class="icon">✈️</span> Mohammed V International Airport</span>
+                            <strong>65km</strong>
+                        </li>
+                        <li>
+                            <span><span class="icon">🏙️</span> Casablanca City Center</span>
+                            <strong>40km</strong>
+                        </li>
+                        <li>
+                            <span><span class="icon">🏛️</span> Rabat Capital</span>
+                            <strong>40km</strong>
+                        </li>
+                        <li>
+                            <span><span class="icon">🏖️</span> Private Beach Access</span>
+                            <strong>Direct</strong>
+                        </li>
+                        <li>
+                            <span><span class="icon">⛳</span> Bahia Golf Course</span>
+                            <strong>On-site</strong>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Directions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Our Story</p>
+                <h2>ITRI LIVING: Redefining Luxury Hospitality</h2>
+                <p>Where Moroccan heritage meets contemporary luxury</p>
+            </div>
+
+            <div class="location-info">
+                <div>
+                    <h3>Our Vision</h3>
+                    <p>Villa Bahia by ITRI LIVING represents a new paradigm in luxury hospitality. We've created more than just a place to stay – we've crafted a sanctuary where every detail is designed to elevate your experience.</p>
+                    
+                    <p>Our commitment to excellence is reflected in every aspect of your journey with us, from the moment you arrive to long after you've returned home. We believe in creating memories that last a lifetime.</p>
+
+                    <h3 style="margin-top: 2rem;">Sustainability & Community</h3>
+                    <p>We're proud to operate with environmental consciousness at our core. From solar energy systems to water conservation practices, we're committed to preserving the natural beauty that surrounds us for future generations.</p>
+                </div>
+                <div>
+                    <div class="trust-badges">
+                        <div class="trust-badge">
+                            <div class="trust-badge-icon">🌿</div>
+                            <h4>Eco-Certified</h4>
+                            <p>Sustainable luxury practices</p>
+                        </div>
+                        <div class="trust-badge">
+                            <div class="trust-badge-icon">⭐</div>
+                            <h4>9.2/10 Rating</h4>
+                            <p>Guest satisfaction score</p>
+                        </div>
+                        <div class="trust-badge">
+                            <div class="trust-badge-icon">🏆</div>
+                            <h4>Award Winning</h4>
+                            <p>Luxury hospitality excellence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h3>Stay Connected with Villa Bahia</h3>
+            <p>Subscribe for exclusive offers, wellness tips, and luxury travel inspiration</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Get in Touch</p>
+                <h2>Begin Your Journey to Serenity</h2>
+                <p>Our concierge team is ready to create your perfect escape</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel">
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="4" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 10px; font-family: inherit;"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Bahia Golf Beach Resort<br>Bouznika, Morocco</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+212 XXX XXX XXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>concierge@villabahia.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div>
+                            <h4>WhatsApp Concierge</h4>
+                            <p>+212 XXX XXX XXX</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Villa Bahia</h4>
+                    <p>An exclusive sanctuary where championship golf meets Atlantic elegance. Experience luxury redefined.</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="#" style="margin-right: 1rem;">📘</a>
+                        <a href="#" style="margin-right: 1rem;">📷</a>
+                        <a href="#" style="margin-right: 1rem;">🐦</a>
+                        <a href="#">💼</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#accommodation">Accommodation</a></li>
+                        <li><a href="#experiences">Experiences</a></li>
+                        <li><a href="#facilities">Facilities</a></li>
+                        <li><a href="#location">Location</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Experiences</h4>
+                    <ul>
+                        <li><a href="#">Yoga Retreats</a></li>
+                        <li><a href="#">Golf Packages</a></li>
+                        <li><a href="#">Wellness Escapes</a></li>
+                        <li><a href="#">Water Sports</a></li>
+                        <li><a href="#">Culinary Workshops</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                        <li><a href="#">COVID-19 Safety</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Villa Bahia by ITRI LIVING. All rights reserved. | Website by ITRI LIVING</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-float" onclick="window.open('https://wa.me/212XXXXXXXXX', '_blank')">
+        💬
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Sticky Navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Form Submissions (Placeholder)
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your interest! This is a demo form. In production, this would be connected to Cloudbeds booking engine and other services.');
+            });
+        });
+
+        // Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.experience-card, .facility-card, .contact-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Placeholder for Integrations
+        console.log('Villa Bahia Website Loaded');
+        console.log('Integrations to implement:');
+        console.log('- Cloudbeds Booking Engine');
+        console.log('- WhatsApp Business API');
+        console.log('- Google Analytics 4');
+        console.log('- Crisp Chat');
+        console.log('- Weglot Translation');
+        console.log('- TripAdvisor Reviews');
+        console.log('- And more...');
+
+        // Language Selector Placeholder
+        const createLanguageSelector = () => {
+            const languages = ['EN', 'FR', 'AR', 'ES', 'ZH'];
+            console.log('Language options:', languages);
+            // In production, this would integrate with Weglot
+        };
+
+        // Initialize
+        createLanguageSelector();
+
+        // Add current year to footer
+        document.querySelector('.footer-bottom p').innerHTML = 
+            document.querySelector('.footer-bottom p').innerHTML.replace('2024', new Date().getFullYear());
+    </script>
+</body>
+</html>
